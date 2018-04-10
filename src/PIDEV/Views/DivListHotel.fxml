@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="308.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.DivListHotelController">
+   <children>
+      <VBox prefHeight="306.0" prefWidth="351.0" spacing="30.0">
+         <children>
+            <AnchorPane fx:id="ap" prefHeight="203.0" prefWidth="374.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #c3c3c3;">
+               <children>
+                  <Pane layoutX="1.0" layoutY="254.0" prefHeight="50.0" prefWidth="359.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                     <children>
+                        <Pane fx:id="sq" layoutX="9.0" layoutY="12.0" prefHeight="25.0" prefWidth="342.0">
+                           <children>
+                              <FontAwesomeIconView fx:id="souscaticon1" fill="#73879c" glyphName="BED" layoutX="239.0" layoutY="-17.0" size="16" />
+                              <Label fx:id="nbrchambre" layoutX="205.0" layoutY="-32.0" text="2507" textFill="#73879c">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children></Pane>
+                     </children>
+                  </Pane>
+                  <Label fx:id="name" layoutX="22.0" layoutY="184.0" text="Dar Zarrouk" textFill="#ff214f">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="souscat" layoutX="86.0" layoutY="218.0" text="Fast Food" textFill="#73879c">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView fx:id="souscaticon" fill="#73879c" glyphName="CUTLERY" layoutX="63.0" layoutY="236.0" size="16" />
+                  <Label fx:id="id" layoutX="247.0" layoutY="21.0" visible="false" />
+                  <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="3.0" layoutY="1.0" stroke="#dddddd" strokeType="INSIDE" width="357.0" />
+                  <Rating fx:id="etoile" layoutX="175.0" layoutY="185.0" />
+                  <Label fx:id="prixmoy" layoutX="297.0" layoutY="228.0" text="259 DT" textFill="#ff214f">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</Pane>
