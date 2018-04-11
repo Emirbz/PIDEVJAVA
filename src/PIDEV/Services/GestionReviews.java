@@ -114,9 +114,9 @@ public void AddLike (Likereview R) throws SQLException
             
          st.executeUpdate();
         }
-public int checkreview(User u) throws SQLException
+public int checkreview(User u,Review R) throws SQLException
 {int s=0;
-     String requete = "SELECT COUNT(*) as total from likereview where iduser='"+u.getId()+"'";
+     String requete = "SELECT COUNT(*) as total from likereview where iduser='"+u.getId()+"' and idreview='"+R.getId()+"'";
       Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
 

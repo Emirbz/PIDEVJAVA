@@ -25,7 +25,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
-import javafx.collections.ObservableArray;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 
@@ -33,13 +32,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -49,7 +46,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -518,7 +514,7 @@ public class HomePageController implements Initializable {
 
     @FXML
     private void AjoutRestaurant(MouseEvent event) throws IOException {
-        AnchorPane addRestaurant = FXMLLoader.load(getClass().getResource("../Views/AjoutCulture.fxml"));
+        AnchorPane addRestaurant = FXMLLoader.load(getClass().getResource("../Views/AddEtablissement.fxml"));
         setNode(addRestaurant);
     }
 
@@ -531,6 +527,36 @@ public class HomePageController implements Initializable {
     @FXML
     private void listHotels(ActionEvent event) throws IOException {
           AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/ListHotel.fxml"));
+        setNode(listRestaurant);
+    }
+
+    @FXML
+    private void Culture(ActionEvent event) throws IOException {
+        AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/ListCulture.fxml"));
+        setNode(listRestaurant);
+    }
+
+    @FXML
+    private void Beaute(ActionEvent event) throws IOException {
+          AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/ListBeaute.fxml"));
+        setNode(listRestaurant);
+    }
+
+    @FXML
+    private void AjouterEvent(ActionEvent event) throws IOException {
+          AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/event.fxml"));
+        setNode(listRestaurant);
+    }
+
+    @FXML
+    private void ListEvent(ActionEvent event) throws IOException {
+          AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/afficheevent.fxml"));
+        setNode(listRestaurant);
+    }
+
+    @FXML
+    private void Home(ActionEvent event) throws IOException {
+        AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/Accueil.fxml"));
         setNode(listRestaurant);
     }
 

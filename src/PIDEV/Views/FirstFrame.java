@@ -25,7 +25,7 @@ public class FirstFrame extends Application {
     public void start(Stage primaryStage) throws IOException {
          Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene scene = new Scene(root);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.DECORATED);
 //        primaryStage.setWidth(700);
 //        primaryStage.setHeight(400);
         primaryStage.setScene(scene);

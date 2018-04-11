@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1121.0" prefWidth="918.0" style="-fx-background-color: white;" stylesheets="@../Style/profil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.AjoutCultureController">
+<AnchorPane prefHeight="1121.0" prefWidth="1162.0" style="-fx-background-color: white;" stylesheets="@../Style/profil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.AjoutCultureController">
    <children>
-      <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="97.0" prefWidth="338.0" style="-fx-background-color: f7f7f7;" styleClass="paneajout">
+      <AnchorPane layoutX="186.0" layoutY="14.0" prefHeight="97.0" prefWidth="338.0" style="-fx-background-color: f7f7f7;" styleClass="paneajout">
          <children>
             <Label layoutX="38.0" layoutY="6.0" prefHeight="32.0" prefWidth="139.0" text="Sous-categorie">
                <font>
@@ -27,10 +27,10 @@
             <FontAwesomeIconView fx:id="souscatw" fill="RED" fontSmoothingType="LCD" glyphName="WARNING" layoutX="200.0" layoutY="81.0" size="30" visible="false" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="11.0" layoutY="120.0" prefHeight="199.0" prefWidth="338.0" styleClass="paneajout">
+      <AnchorPane layoutX="185.0" layoutY="120.0" prefHeight="199.0" prefWidth="338.0" styleClass="paneajout">
          <children>
-            <JFXTextField fx:id="name" focusColor="#7682a4" layoutX="31.0" layoutY="84.0" prefHeight="25.0" prefWidth="257.0" promptText="Libelle" />
             <JFXTextField fx:id="email" focusColor="#7682a4" layoutX="31.0" layoutY="43.0" prefHeight="25.0" prefWidth="257.0" promptText="Email" />
+            <JFXTextField fx:id="name" focusColor="#7682a4" layoutX="31.0" layoutY="84.0" prefHeight="25.0" prefWidth="257.0" promptText="Libelle" />
             <Label layoutX="41.0" layoutY="7.0" prefHeight="36.0" prefWidth="297.0" text="Nom &amp; Description">
                <font>
                   <Font name="Comic Sans MS" size="17.0" />
@@ -43,7 +43,7 @@
             <FontAwesomeIconView fx:id="descriptionw" fill="RED" fontSmoothingType="LCD" glyphName="WARNING" layoutX="267.0" layoutY="182.0" size="20" visible="false" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="12.0" layoutY="328.0" prefHeight="215.0" prefWidth="336.0" styleClass="paneajout">
+      <AnchorPane layoutX="186.0" layoutY="328.0" prefHeight="215.0" prefWidth="336.0" styleClass="paneajout">
          <children>
             <JFXTextField fx:id="phone" focusColor="#7682a4" layoutX="31.0" layoutY="46.0" prefHeight="25.0" prefWidth="257.0" promptText="Telephone" />
             <JFXTextField fx:id="website" focusColor="#7682a4" layoutX="31.0" layoutY="89.0" prefHeight="25.0" prefWidth="257.0" promptText="Site web" />
@@ -62,7 +62,7 @@
             <Insets right="-3.0" />
          </padding>
       </AnchorPane>
-      <AnchorPane layoutX="12.0" layoutY="551.0" prefHeight="172.0" prefWidth="338.0" styleClass="paneajout">
+      <AnchorPane layoutX="186.0" layoutY="551.0" prefHeight="172.0" prefWidth="338.0" styleClass="paneajout">
          <children>
             <Label layoutX="34.0" layoutY="-2.0" prefHeight="32.0" prefWidth="232.0" text="Localisation">
                <font>
@@ -80,7 +80,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="12.0" layoutY="744.0" prefHeight="127.0" prefWidth="338.0" styleClass="paneajout">
+      <AnchorPane layoutX="186.0" layoutY="744.0" prefHeight="127.0" prefWidth="338.0" styleClass="paneajout">
          <children>
             <Label layoutX="35.0" layoutY="4.0" prefHeight="32.0" prefWidth="139.0" text="Horaires">
                <font>
@@ -96,13 +96,13 @@
             <JFXComboBox fx:id="dimanchef" layoutX="227.0" layoutY="86.0" prefHeight="25.0" prefWidth="96.0" />
          </children>
       </AnchorPane>
-      <Label layoutX="381.0" layoutY="26.0" prefHeight="104.0" prefWidth="398.0" text="Ajout d'un Centre Culturel">
+      <Label layoutX="555.0" layoutY="26.0" prefHeight="104.0" prefWidth="398.0" text="Ajout d'un Centre Culturel">
          <font>
             <Font name="Comic Sans MS" size="29.0" />
          </font>
       </Label>
-      <Button fx:id="ajout" layoutX="596.0" layoutY="1045.0" mnemonicParsing="false" onAction="#AjoutRestaurant" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: ff214f; -fx-text-fill: white;" text="Ajouter" />
-      <AnchorPane layoutX="12.0" layoutY="913.0" prefHeight="120.0" prefWidth="692.0" styleClass="paneajout">
+      <Button fx:id="ajout" layoutX="770.0" layoutY="1045.0" mnemonicParsing="false" onAction="#AjoutRestaurant" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: ff214f; -fx-text-fill: white;" text="Ajouter" />
+      <AnchorPane layoutX="186.0" layoutY="913.0" prefHeight="120.0" prefWidth="692.0" styleClass="paneajout">
          <children>
             <Label layoutX="35.0" layoutY="2.0" prefHeight="32.0" prefWidth="139.0" text="Equipements">
                <font>
@@ -123,7 +123,7 @@
             <JFXCheckBox fx:id="climatisation" checkedColor="#ff214f" layoutX="28.0" layoutY="51.0" text="Climatisation" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="376.0" layoutY="144.0" prefHeight="485.0" prefWidth="502.0" styleClass="paneajout">
+      <AnchorPane layoutX="550.0" layoutY="144.0" prefHeight="485.0" prefWidth="502.0" styleClass="paneajout">
          <children>
             <Label layoutX="34.0" layoutY="-2.0" prefHeight="32.0" prefWidth="139.0" text="Images">
                <font>
@@ -181,6 +181,5 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <FontAwesomeIconView glyphName="HOME" layoutX="396.0" layoutY="39.0" onMouseDragged="#home" size="20" />
    </children>
 </AnchorPane>

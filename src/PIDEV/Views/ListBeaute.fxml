@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.ListBeauteController">
+   <children>
+      <Label layoutX="84.0" layoutY="25.0" prefHeight="85.0" prefWidth="591.0" text="Liste des Centres de Beautés">
+         <font>
+            <Font name="Bodoni MT Condensed" size="69.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="recherchetext" layoutX="104.0" layoutY="117.0" onKeyReleased="#RechercheDynamique" prefHeight="24.0" prefWidth="239.0" promptText="Rechercher votre restaurant ..." />
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="321.0" layoutY="137.0" size="20" wrappingWidth="24.0" />
+      <FontAwesomeIconView fx:id="home" glyphName="HOME" layoutX="690.0" layoutY="39.0" onMouseClicked="#home" size="30" />
+      <ScrollPane fx:id="pane" layoutX="35.0" layoutY="179.0" prefHeight="572.0" prefWidth="1176.0" />
+      <ImageView fitHeight="31.0" fitWidth="38.0" layoutX="354.0" layoutY="113.0" onMouseClicked="#openmap" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/google_maps_2015_0.png" />
+         </image>
+      </ImageView>
+      <JFXComboBox fx:id="trisouscat" layoutX="752.0" layoutY="117.0" />
+      <FontAwesomeIconView fill="#ff214f" glyphName="SLIDERS" layoutX="-246.0" layoutY="27.0" size="22" x="970.0" y="117.0" />
+      <JFXComboBox fx:id="tri" layoutX="969.0" layoutY="119.0" />
+      <FontAwesomeIconView fill="#ff214f" glyphName="SLIDERS" layoutX="-29.0" layoutY="29.0" size="22" x="970.0" y="117.0" />
+   </children>
+</AnchorPane>

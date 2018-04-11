@@ -17,7 +17,7 @@
       <AnchorPane prefHeight="922.0" prefWidth="1050.0">
          <children>
             <JFXComboBox fx:id="souscat" layoutX="50.0" layoutY="56.0" />
-            <Label layoutX="294.0" layoutY="29.0" text="Modifier restaurant">
+            <Label layoutX="294.0" layoutY="29.0" text="Modifier un Etablissement">
                <font>
                   <Font name="Bodoni MT Condensed" size="87.0" />
                </font>

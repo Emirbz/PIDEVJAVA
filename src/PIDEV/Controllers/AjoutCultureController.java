@@ -256,7 +256,7 @@ public class AjoutCultureController implements Initializable {
 
             AddEtablissement addetab = new AddEtablissement();
 
-            addetab.AddRestaurant(E);
+            addetab.AddCulture(E);
              Notifications.create()
                         .title(null)
                         .text("Vote Etablissement a été ajouée en attente la confirmation de l'admin")
@@ -279,7 +279,7 @@ public class AjoutCultureController implements Initializable {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/HomePage.fxml"));
                     Parent root = loader.load();
                     HomePageController pu = loader.getController();
-                    AnchorPane Rev = FXMLLoader.load(getClass().getResource("../Views/ListResto.fxml"));
+                    AnchorPane Rev = FXMLLoader.load(getClass().getResource("../Views/ListCulture.fxml"));
                     pu.setNode(Rev);
                     name.getScene().setRoot(root);
                    

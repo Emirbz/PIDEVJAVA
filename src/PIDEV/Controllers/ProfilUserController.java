@@ -47,114 +47,37 @@ import org.controlsfx.control.Rating;
  */
 public class ProfilUserController implements Initializable {
 
+    @FXML
     private Label membreDepuis;
+    @FXML
     private Label nomUser;
+    @FXML
     private Separator seperateProf;
+    @FXML
     private Separator seperateList;
+    @FXML
     private Separator seperateRev;
+    @FXML
     private Separator seperateReservation;
+    @FXML
     private Separator seperateFav;
+    @FXML
     private Circle photoProfil;
     AnchorPane prof,res,pricing,profiles,widgets,controls,list,listrev;
+    @FXML
     private AnchorPane main;
     @FXML
-    private JFXTabPane tab;
+    private FontAwesomeIconView close;
     @FXML
-    private ImageView image2;
+    private JFXButton myListings;
     @FXML
-    private ImageView image1;
+    private JFXButton reviews;
     @FXML
-    private Label name;
+    private JFXButton profile;
     @FXML
-    private Label phone;
+    private JFXButton reservations;
     @FXML
-    private Label email;
-    @FXML
-    private Label address;
-    @FXML
-    private Label description;
-    @FXML
-    private JFXCheckBox parking;
-    @FXML
-    private JFXCheckBox cartecredit;
-    @FXML
-    private JFXCheckBox chaiseroulante;
-    @FXML
-    private JFXCheckBox fumer;
-    @FXML
-    private JFXCheckBox alcool;
-    @FXML
-    private JFXCheckBox terasse;
-    @FXML
-    private JFXCheckBox wifi;
-    @FXML
-    private JFXCheckBox animaux;
-    @FXML
-    private JFXCheckBox livraison;
-    @FXML
-    private JFXCheckBox reservation;
-    @FXML
-    private JFXCheckBox climatisation;
-    @FXML
-    private Label lundisamedio;
-    @FXML
-    private Label lundisamedif;
-    @FXML
-    private Label dimancheo;
-    @FXML
-    private Label dimanchef;
-    @FXML
-    private ImageView image3;
-    @FXML
-    private ImageView image4;
-    @FXML
-    private ImageView image5;
-    @FXML
-    private Label total;
-    @FXML
-    private Label qualitelabel;
-    @FXML
-    private Label servicelabel;
-    @FXML
-    private Label evaluation;
-    @FXML
-    private Label dejaevaluated;
-    @FXML
-    private AnchorPane panecom;
-    @FXML
-    private JFXTextField titre;
-    @FXML
-    private JFXTextArea comment;
-    @FXML
-    private JFXButton AddReview;
-    @FXML
-    private Rating qualite;
-    @FXML
-    private Rating service;
-    @FXML
-    private GoogleMapView googleMapView;
-    @FXML
-    private Circle circleuser;
-    @FXML
-    private Label nomuser;
-    @FXML
-    private Label dateuser;
-    @FXML
-    private Label phoneuser;
-    @FXML
-    private Label addressuser;
-    @FXML
-    private Label dejanote;
-    @FXML
-    private JFXButton reserver;
-    @FXML
-    private JFXButton listReservation;
-    @FXML
-    private Label idEtab;
-    @FXML
-    private Tab tabX;
-    @FXML
-    private AnchorPane scroll;
+    private JFXButton favoris;
     /**
      * Initializes the controller class.
      */
@@ -222,6 +145,7 @@ public class ProfilUserController implements Initializable {
         ft.play();
     }
 
+    @FXML
     private void reservation(MouseEvent event) {
         setNode(res);
         seperateProf.setStyle("");
@@ -232,6 +156,7 @@ public class ProfilUserController implements Initializable {
         
     }
 
+    @FXML
     private void profile(MouseEvent event) {
         setNode(prof);
         seperateReservation.setStyle("");
@@ -241,6 +166,7 @@ public class ProfilUserController implements Initializable {
         seperateRev.setStyle("");
     }
 
+    @FXML
     private void closeWindow(MouseEvent event) {
         Platform.exit();
     }
@@ -258,6 +184,7 @@ public class ProfilUserController implements Initializable {
         seperateRev.setStyle("");
     }
 
+    @FXML
     private void myListing(MouseEvent event) {
               setNode(list);
         seperateReservation.setStyle("");
@@ -267,6 +194,7 @@ public class ProfilUserController implements Initializable {
         seperateRev.setStyle("");
     }
 
+    @FXML
     private void MyReviews(MouseEvent event) {
           setNode(listrev);
         seperateReservation.setStyle("");
@@ -276,17 +204,6 @@ public class ProfilUserController implements Initializable {
         seperateRev.setStyle("-fx-background-color:  #ff214f;");
     }
 
-    @FXML
-    private void back(MouseEvent event) {
-    }
-
-    @FXML
-    private void reserver(MouseEvent event) {
-    }
-
-    @FXML
-    private void listReservationPage(MouseEvent event) {
-    }
 
 
     

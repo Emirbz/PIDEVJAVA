@@ -66,6 +66,8 @@ public class MyListingController implements Initializable {
             TilePane a = new TilePane();
             Label title = new Label(etab.getName());
             title.setStyle("-fx-font-size:22px;-fx-font-weight: bold");
+            Label cat = new Label(etab.getCategorie());
+            title.setStyle("-fx-font-size:18px;-fx-font-weight: bold");
             Label qualite = new Label("Qualite :");
             qualite.setStyle("-fx-font-size:12px;-fx-font-weight: bold");
 
@@ -97,7 +99,7 @@ public class MyListingController implements Initializable {
                 @Override
                 public void handle(MouseEvent event) {
                     ListEtablissement le = new ListEtablissement();
-                    Etablissement selectedetab = le.ListRestaurant().filtered(e -> e.getId() == Integer.parseInt(id.getText())).get(0);
+                    Etablissement selectedetab = le.ListRestaurantUser().filtered(e -> e.getId() == Integer.parseInt(id.getText())).get(0);
                     editicon.setVisible(true);
 
                     deleteicon.setVisible(true);
@@ -119,7 +121,7 @@ public class MyListingController implements Initializable {
             deleteicon.setOnMouseClicked((event) -> {
                 deleteetab(etab);
             });
-            a.getChildren().add(new VBox(5, new HBox(270, editicon, deleteicon), imgetab, id, title, new HBox(2, qualite, p), new HBox(2, service, pp)));
+            a.getChildren().add(new VBox(5, new HBox(270, editicon, deleteicon), imgetab, id, title,cat, new HBox(2, qualite, p), new HBox(2, service, pp)));
                a.setPadding(new javafx.geometry.Insets(60, 5, 10, 35));
             a.setMaxSize(300, 150);
               a.setPrefColumns(2);

@@ -668,7 +668,7 @@ public class ListEtablissement {
                 etab.setLivraison(rs.getBoolean("livraison"));
                 etab.setClimatisation(rs.getBoolean("climatisation"));
                 etab.setAnimaux(rs.getBoolean("animaux"));
-                Categorie c = new Categorie(2, "Hotel", "Hotel");
+                Categorie c = new Categorie(3, "Hotel", "Hotel");
                 String requete2 = "SELECT * from sous__categorie where id='" + rs.getInt("souscat") + "'";
                 PreparedStatement st2 = cn.prepareStatement(requete2);
 
@@ -743,7 +743,7 @@ public class ListEtablissement {
                 etab.setLivraison(rs.getBoolean("livraison"));
                 etab.setClimatisation(rs.getBoolean("climatisation"));
                 etab.setAnimaux(rs.getBoolean("animaux"));
-                Categorie c = new Categorie(4, "Restaurant", "Restaurant");
+                Categorie c = new Categorie(2, "Espace culturel", "Espace culturel");
                 String requete2 = "SELECT * from sous__categorie where id='" + rs.getInt("souscat") + "'";
                 PreparedStatement st2 = cn.prepareStatement(requete2);
 
@@ -868,6 +868,248 @@ public class ListEtablissement {
 
         try {
             String requete = "Select * from etablissement where categorie='Espace culturel' ORDER BY " + trisq + " DESC";
+            System.out.println(requete);
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                Etablissement etab = new Etablissement();
+                etab.setName(rs.getString("name"));
+                etab.setAddress(rs.getString("address"));
+                etab.setEmail(rs.getString("email"));
+                etab.setPhone(rs.getString("phone"));
+                etab.setLundisamedio(rs.getString("lundisamedio"));
+                etab.setLundisamedif(rs.getString("lundisamedif"));
+                etab.setDimancheo(rs.getString("dimancheo"));
+                etab.setDimanchef(rs.getString("dimanchef"));
+                etab.setId(rs.getInt("id"));
+                etab.setAlcool(rs.getBoolean("alcool"));
+                etab.setDescription(rs.getString("description"));
+                etab.setWebsite(rs.getString("website"));
+                etab.setFacebook(rs.getString("facebook"));
+                etab.setImg1(rs.getString("img1"));
+                etab.setImg2(rs.getString("img2"));
+                etab.setImg3(rs.getString("img3"));
+                etab.setDevis_name(rs.getString("devis_name"));
+                etab.setTotalqualite(rs.getDouble("totalqualite"));
+                etab.setTotalservice(rs.getDouble("totalservice"));
+                etab.setMoyqualite(rs.getDouble("moyqualite"));
+                etab.setMoyservice(rs.getDouble("moyservice"));
+                etab.setLatitude(rs.getDouble("latitude"));
+                etab.setLongitude(rs.getDouble("longitude"));
+
+                etab.setCategorie(rs.getString("categorie"));
+                etab.setParking(rs.getBoolean("parking"));
+
+                etab.setCartecredit(rs.getBoolean("cartecredit"));
+                etab.setChaiseroulante(rs.getBoolean("chaiseroulante"));
+                etab.setFumer(rs.getBoolean("fumer"));
+                etab.setTerasse(rs.getBoolean("terasse"));
+                etab.setWifi(rs.getBoolean("wifi"));
+                etab.setReservations(rs.getBoolean("reservations"));
+                etab.setPlace(rs.getInt("place"));
+                etab.setLivraison(rs.getBoolean("livraison"));
+                etab.setClimatisation(rs.getBoolean("climatisation"));
+                etab.setAnimaux(rs.getBoolean("animaux"));
+                Categorie c = new Categorie(4, "Restaurant", "Restaurant");
+                String requete2 = "SELECT * from sous__categorie where id='" + rs.getInt("souscat") + "'";
+                PreparedStatement st2 = cn.prepareStatement(requete2);
+
+                ResultSet rs2 = st2.executeQuery(requete2);
+
+                SousCategorie sc = new SousCategorie();
+                while (rs2.next()) {
+                    sc.setId(rs2.getInt(1));
+
+                    sc.setIdcategorie(c);
+                    sc.setNom(rs2.getString(3)); // oubien 3 
+
+                }
+
+                etab.setSouscat(sc);
+                myList.add(etab);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
+    }
+     public ObservableList<Etablissement> ListBeaute() {
+        ObservableList<Etablissement> myList = FXCollections.observableArrayList();
+        Connection cn = MyConnexion.getInstance().getConnection();
+        try {
+            String requete = "SELECT * from etablissement where categorie='Beauté et bien être'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                Etablissement etab = new Etablissement();
+                etab.setName(rs.getString("name"));
+                etab.setAddress(rs.getString("address"));
+                etab.setEmail(rs.getString("email"));
+                etab.setPhone(rs.getString("phone"));
+                etab.setLundisamedio(rs.getString("lundisamedio"));
+                etab.setLundisamedif(rs.getString("lundisamedif"));
+                etab.setDimancheo(rs.getString("dimancheo"));
+                etab.setDimanchef(rs.getString("dimanchef"));
+                etab.setId(rs.getInt("id"));
+                etab.setAlcool(rs.getBoolean("alcool"));
+                etab.setDescription(rs.getString("description"));
+                etab.setWebsite(rs.getString("website"));
+                etab.setFacebook(rs.getString("facebook"));
+                etab.setImg1(rs.getString("img1"));
+                etab.setImg2(rs.getString("img2"));
+                etab.setImg3(rs.getString("img3"));
+                etab.setDevis_name(rs.getString("devis_name"));
+                etab.setTotalqualite(rs.getDouble("totalqualite"));
+                etab.setTotalservice(rs.getDouble("totalservice"));
+                etab.setMoyqualite(rs.getDouble("moyqualite"));
+                etab.setMoyservice(rs.getDouble("moyservice"));
+                etab.setLatitude(rs.getDouble("latitude"));
+                etab.setLongitude(rs.getDouble("longitude"));
+
+                etab.setCategorie(rs.getString("categorie"));
+                etab.setParking(rs.getBoolean("parking"));
+
+                UserService us = new UserService();
+                int idutilisateur = rs.getInt("iduser");
+
+                User utilisateur = us.searchById(idutilisateur);
+                etab.setIduser(utilisateur);
+
+                etab.setCartecredit(rs.getBoolean("cartecredit"));
+                etab.setChaiseroulante(rs.getBoolean("chaiseroulante"));
+                etab.setFumer(rs.getBoolean("fumer"));
+                etab.setTerasse(rs.getBoolean("terasse"));
+                etab.setWifi(rs.getBoolean("wifi"));
+                etab.setReservations(rs.getBoolean("reservations"));
+                etab.setPlace(rs.getInt("place"));
+                etab.setLivraison(rs.getBoolean("livraison"));
+                etab.setClimatisation(rs.getBoolean("climatisation"));
+                etab.setAnimaux(rs.getBoolean("animaux"));
+                Categorie c = new Categorie(1, "Beauté et bien être", "Beauté et bien être");
+                String requete2 = "SELECT * from sous__categorie where id='" + rs.getInt("souscat") + "'";
+                PreparedStatement st2 = cn.prepareStatement(requete2);
+
+                ResultSet rs2 = st2.executeQuery(requete2);
+
+                SousCategorie sc = new SousCategorie();
+                while (rs2.next()) {
+                    sc.setId(rs2.getInt(1));
+
+                    sc.setIdcategorie(c);
+                    sc.setNom(rs2.getString(3)); // oubien 3 
+
+                }
+
+                etab.setSouscat(sc);
+                myList.add(etab);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
+    }
+
+   
+
+    public ObservableList<Etablissement> ListBeauteTrie(String scvalue, String trisq) throws SQLException {
+        ObservableList<Etablissement> myList = FXCollections.observableArrayList();
+        Connection cn = MyConnexion.getInstance().getConnection();
+        if (trisq == "Meilleur Qualité") {
+            trisq = "moyqualite";
+        }
+        if (trisq == "Meilleur Service") {
+            trisq = "moyservice";
+        }
+
+        String requete2 = "select id from sous__categorie where nom='" + scvalue + "'";
+
+        Statement st2 = cn.createStatement();
+        ResultSet rs2 = st2.executeQuery(requete2);
+        int i = 0;
+        while (rs2.next()) {
+            i = rs2.getInt(1);
+
+        }
+        try {
+            String requete = "SELECT * from etablissement where categorie='Beauté et bien être' and souscat='" + i + "' ORDER BY " + trisq + " DESC ";
+            System.out.println(requete);
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                Etablissement etab = new Etablissement();
+                etab.setName(rs.getString("name"));
+                etab.setAddress(rs.getString("address"));
+                etab.setEmail(rs.getString("email"));
+                etab.setPhone(rs.getString("phone"));
+                etab.setLundisamedio(rs.getString("lundisamedio"));
+                etab.setLundisamedif(rs.getString("lundisamedif"));
+                etab.setDimancheo(rs.getString("dimancheo"));
+                etab.setDimanchef(rs.getString("dimanchef"));
+                etab.setId(rs.getInt("id"));
+                etab.setAlcool(rs.getBoolean("alcool"));
+                etab.setDescription(rs.getString("description"));
+                etab.setWebsite(rs.getString("website"));
+                etab.setFacebook(rs.getString("facebook"));
+                etab.setImg1(rs.getString("img1"));
+                etab.setImg2(rs.getString("img2"));
+                etab.setImg3(rs.getString("img3"));
+                etab.setDevis_name(rs.getString("devis_name"));
+                etab.setTotalqualite(rs.getDouble("totalqualite"));
+                etab.setTotalservice(rs.getDouble("totalservice"));
+                etab.setMoyqualite(rs.getDouble("moyqualite"));
+                etab.setMoyservice(rs.getDouble("moyservice"));
+                etab.setLatitude(rs.getDouble("latitude"));
+                etab.setLongitude(rs.getDouble("longitude"));
+
+                etab.setCategorie(rs.getString("categorie"));
+                etab.setParking(rs.getBoolean("parking"));
+
+                etab.setCartecredit(rs.getBoolean("cartecredit"));
+                etab.setChaiseroulante(rs.getBoolean("chaiseroulante"));
+                etab.setFumer(rs.getBoolean("fumer"));
+                etab.setTerasse(rs.getBoolean("terasse"));
+                etab.setWifi(rs.getBoolean("wifi"));
+                etab.setReservations(rs.getBoolean("reservations"));
+                etab.setPlace(rs.getInt("place"));
+                etab.setLivraison(rs.getBoolean("livraison"));
+                etab.setClimatisation(rs.getBoolean("climatisation"));
+                etab.setAnimaux(rs.getBoolean("animaux"));
+                Categorie c = new Categorie(4, "Restaurant", "Restaurant");
+                String requete3 = "SELECT * from sous__categorie where id='" + rs.getInt("souscat") + "'";
+                PreparedStatement st3 = cn.prepareStatement(requete3);
+
+                ResultSet rs3 = st3.executeQuery(requete3);
+
+                SousCategorie sc = new SousCategorie();
+                while (rs3.next()) {
+                    sc.setId(rs3.getInt(1));
+
+                    sc.setIdcategorie(c);
+                    sc.setNom(rs3.getString(3)); // oubien 3 
+
+                }
+
+                etab.setSouscat(sc);
+                myList.add(etab);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
+    }
+
+    public ObservableList<Etablissement> TriserviceBeaute(String trisq) {
+        ObservableList<Etablissement> myList = FXCollections.observableArrayList();
+        Connection cn = MyConnexion.getInstance().getConnection();
+        if (trisq == "Meilleur Qualité") {
+            trisq = "moyqualite";
+        }
+        if (trisq == "Meilleur Service") {
+            trisq = "moyservice";
+        }
+
+        try {
+            String requete = "Select * from etablissement where categorie='Beauté et bien être' ORDER BY " + trisq + " DESC";
             System.out.println(requete);
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);

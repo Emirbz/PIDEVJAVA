@@ -305,7 +305,7 @@ checkout.setValue("12:00");
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/HomePage.fxml"));
                     Parent root = loader.load();
                     HomePageController pu = loader.getController();
-                    AnchorPane Rev = FXMLLoader.load(getClass().getResource("../Views/ListResto.fxml"));
+                    AnchorPane Rev = FXMLLoader.load(getClass().getResource("../Views/ListHotel.fxml"));
                     pu.setNode(Rev);
                     name.getScene().setRoot(root);
                    
