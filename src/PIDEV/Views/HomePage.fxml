@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="home" prefHeight="655.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.HomePageController">
+   <children>
+      <AnchorPane prefHeight="86.0" prefWidth="1300.0" style="-fx-background-color: rgba(0,0,0,.9);">
+         <children>
+            <Label layoutX="557.0" layoutY="28.0" text="Explorer les bons plans" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ScrollPane fx:id="scrollHomePage" layoutY="86.0" prefHeight="570.0" prefWidth="1300.0" style="-fx-background-color: white;">
+         <content>
+            <AnchorPane fx:id="mainAP" accessibleText="pane" prefHeight="570.0" prefWidth="1300.0" />
+         </content>
+      </ScrollPane>
+      <JFXDrawer fx:id="menu" defaultDrawerSize="300.0" prefHeight="655.0" prefWidth="300.0" style="-fx-background-color: transparent;">
+         <children>
+            <AnchorPane fx:id="menuBar" maxHeight="655.0" maxWidth="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="300.0" style="-fx-background-color: rgba(0,0,0,.9);">
+               <children>
+                  <AnchorPane fx:id="loginRegisterProfie" layoutY="18.0" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: rgba(0,0,0,.9);">
+                     <children>
+                        <HBox fx:id="profileHB" layoutX="6.0" layoutY="13.0" prefHeight="75.0" prefWidth="134.0" visible="false">
+                           <children>
+                              <Circle fx:id="photoProfilMenu" fill="#dadada" radius="35.0" stroke="BLACK" strokeType="OUTSIDE" />
+                              <HBox fx:id="menuHB" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-padding: 10 -30 -30 -30;">
+                                 <children>
+                                    <VBox fx:id="profileVB" prefHeight="39.0" prefWidth="62.0" style="-fx-background-color: transparent; -fx-padding: 29 0 0 0;">
+                                       <children>
+                                          <JFXButton fx:id="profilMenu" onAction="#profilePage" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: rgba(0,0,0,.9);" text="Profile" textFill="#707070" />
+                                          <JFXButton fx:id="settingsProfile" onAction="#settingPage" style="-fx-background-color: rgba(0,0,0,.9);" text="Settings" textFill="#707070" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <Label fx:id="nameUserMenu" layoutX="87.0" layoutY="27.0" text="Label" textFill="#dadada" visible="false" />
+                        <Label fx:id="labelLastLoginMenu" layoutX="87.0" layoutY="46.0" text="Last Login :" visible="false" />
+                        <Label fx:id="LastLoginMenu" layoutX="156.0" layoutY="47.0" text="Label" visible="false" />
+                        <JFXButton fx:id="logoutMenu" layoutX="206.0" layoutY="66.0" prefHeight="25.0" prefWidth="79.0" text="Log out" textFill="#aeaeae" visible="false" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="barreRecherche" layoutY="128.0" prefHeight="182.0" prefWidth="300.0" style="-fx-background-color: rgba(0,0,0,.9);">
+                     <children>
+                        <JFXTextField fx:id="searchLabel" focusColor="#ff214f" layoutX="34.0" layoutY="54.0" prefHeight="25.0" prefWidth="229.0" promptText="What are you looking for?" />
+                        <JFXComboBox fx:id="typeSearch" focusColor="#ff214f" layoutX="34.0" layoutY="101.0" prefHeight="25.0" prefWidth="114.0" />
+                        <JFXButton fx:id="searchButton" layoutX="193.0" layoutY="103.0" style="-fx-background-color: #ff214f;" text="Rechercher" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                        <FontAwesomeIconView fill="#ff214f" glyphName="SEARCH" layoutX="18.0" layoutY="71.0" />
+                        <FontAwesomeIconView fill="#ff214f" glyphName="TAG" layoutX="18.0" layoutY="125.0" />
+                     </children>
+                  </AnchorPane>
+                  <VBox fx:id="menuVB" layoutY="328.0" prefHeight="281.0" prefWidth="300.0">
+                     <children>
+                        <VBox fx:id="accueilVB" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: rgba(0,0,0,.9);">
+                           <children>
+                              <JFXButton fx:id="accueilButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" lineSpacing="16.0" prefHeight="25.0" prefWidth="303.0" style="-fx-padding: 9 9 9 17;" text="Accueil" textFill="#dadada">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#fefefe" glyphName="HOME" size="15" />
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="catVB" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <JFXButton fx:id="catButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" lineSpacing="16.0" prefHeight="25.0" prefWidth="301.0" style="-fx-background-color: rgba(0,0,0,.9); -fx-padding: 9 9 9 17;" text="Catégories" textFill="#dadada">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#fefefe" glyphName="MAP" size="15" />
+                                 </graphic>
+                              </JFXButton>
+                              <VBox fx:id="sousMenuCat" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: rgba(0,0,0,.7);">
+                                 <children>
+                                    <JFXButton fx:id="ajoutCatB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="306.0" style="-fx-padding: 7 7 7 50;" text="Ajouter Etablissement" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="PLUS" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="restaurantB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="300.0" style="-fx-padding: 7 7 7 50;" text=" Restaurants" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="CUTLERY" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="hotelB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="304.0" style="-fx-padding: 7 7 7 50;" text="Hôtels" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="HOTEL" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="centreBeauteB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="309.0" style="-fx-padding: 7 7 7 50;" text="Centres de beauté et bien être" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="FEMALE" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="culturelB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="315.0" style="-fx-padding: 7 7 7 50;" text="Centres culturels" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="INSTITUTION" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="eventVB" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <JFXButton fx:id="eventButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" lineSpacing="16.0" prefHeight="25.0" prefWidth="306.0" style="-fx-background-color: rgba(0,0,0,.9); -fx-padding: 9 9 9 17;" text="Evènements" textFill="#dadada">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#fefefe" glyphName="TICKET" size="15" />
+                                 </graphic>
+                              </JFXButton>
+                              <VBox fx:id="sousMenuEvent" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: rgba(0,0,0,.7);">
+                                 <children>
+                                    <JFXButton fx:id="ajoutEventB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="301.0" style="-fx-padding: 7 7 7 50;" text="Ajouter évènement" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="PLUS" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="listeEventB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="300.0" style="-fx-padding: 7 7 7 50;" text="Les évènements" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="HOURGLASS_START" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="blogVB" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <JFXButton fx:id="blogButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" lineSpacing="16.0" prefHeight="25.0" prefWidth="302.0" style="-fx-background-color: rgba(0,0,0,.9); -fx-padding: 9 9 9 17;" text="Blog" textFill="#dadada">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#fefefe" glyphName="I_CURSOR" size="15" />
+                                 </graphic>
+                              </JFXButton>
+                              <VBox fx:id="sousMenuBlog" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: rgba(0,0,0,.7);">
+                                 <children>
+                                    <JFXButton fx:id="ajoutArticleB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="304.0" style="-fx-padding: 7 7 7 50;" text="Ajouter un article" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="PLUS" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="themeB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="301.0" style="-fx-padding: 7 7 7 50;" text="Thèmes" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="THUMB_TACK" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="listArticleB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="304.0" style="-fx-padding: 7 7 7 50;" text="Articles" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="QUOTE_RIGHT" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="dealVB" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <JFXButton fx:id="dealButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" lineSpacing="16.0" prefHeight="25.0" prefWidth="304.0" style="-fx-background-color: rgba(0,0,0,.9); -fx-padding: 9 9 9 17;" text="Deals" textFill="#dadada">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#fefefe" glyphName="TAGS" size="15" />
+                                 </graphic>
+                              </JFXButton>
+                              <VBox fx:id="sousMenuDeal" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: rgba(0,0,0,.7);">
+                                 <children>
+                                    <JFXButton fx:id="ajoutDealB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="302.0" style="-fx-padding: 7 7 7 50;" text="Ajouter un deal" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="PLUS" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton fx:id="listDealB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="303.0" style="-fx-padding: 7 7 7 50;" text="Deals" textFill="#dadada">
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#fefefe" glyphName="CREDIT_CARD" size="15" />
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </JFXDrawer>
+      <JFXHamburger fx:id="hamburger" layoutX="20.0" layoutY="18.0" prefHeight="35.0" prefWidth="44.0" styleClass="jfx-hamburger" stylesheets="@main.css" />
+   </children>
+</AnchorPane>
