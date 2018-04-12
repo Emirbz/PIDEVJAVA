@@ -114,6 +114,7 @@ public class MyListingController implements Initializable {
             editicon.setStyle("-glyph-size:20;-fx-fill:#3366cc");
 
             editicon.setOnMouseClicked((event) -> {
+                
                 editetab(etab, url, rb);
             });
 
@@ -154,14 +155,12 @@ public class MyListingController implements Initializable {
     }
 
     public void editetab(Etablissement etab, URL url, ResourceBundle rb) {
-        if ("Restaurant".equals(etab.getCategorie()))
-        {
-            
-        
-        try {
+        if 
+                ("Restaurant".equals(etab.getCategorie()))
+        {try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/EditResto.fxml"));
             Parent root = loader.load();
-            EditrestoController ec = loader.getController();
+          EditrestoController ec = loader.getController();
             ec.showresto(etab);
             ScrollPane r = new ScrollPane(root);
             Stage stage = new Stage(StageStyle.DECORATED);
@@ -171,18 +170,16 @@ public class MyListingController implements Initializable {
             ec.getEdit().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    if (ec.controleSaisie())
+ if (ec.controleSaisie())
                     {
                     stage.close();
                     initialize(url, rb);
                     }
-
                 }
             });
         } catch (IOException ex) {
             Logger.getLogger(ListrestoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
+        }}
         else if 
                 ("Espace culturel".equals(etab.getCategorie()))
         {try {

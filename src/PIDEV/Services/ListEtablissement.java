@@ -46,12 +46,71 @@ public class ListEtablissement {
         }
         return myList;
     }
+     public ObservableList<Etablissement> ListEtabsNonValide() {
+        ObservableList<Etablissement> myList = FXCollections.observableArrayList();
+        Connection cn = MyConnexion.getInstance().getConnection();
+        try {
+            String requete = "SELECT * from etablissement where etat='inactif'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                Etablissement etab = new Etablissement();
+                etab.setName(rs.getString("name"));
+                etab.setAddress(rs.getString("address"));
+                etab.setEmail(rs.getString("email"));
+                etab.setPhone(rs.getString("phone"));
+               
+                etab.setId(rs.getInt("id"));
+                etab.setEtat(rs.getString("etat"));
+
+                etab.setCategorie(rs.getString("categorie"));
+                etab.setParking(rs.getBoolean("parking"));
+
+                UserService us = new UserService();
+                int idutilisateur = rs.getInt("iduser");
+
+                User utilisateur = us.searchById(idutilisateur);
+                etab.setIduser(utilisateur);
+
+                etab.setCartecredit(rs.getBoolean("cartecredit"));
+                etab.setChaiseroulante(rs.getBoolean("chaiseroulante"));
+                etab.setFumer(rs.getBoolean("fumer"));
+                etab.setTerasse(rs.getBoolean("terasse"));
+                etab.setWifi(rs.getBoolean("wifi"));
+                etab.setReservations(rs.getBoolean("reservations"));
+                etab.setPlace(rs.getInt("place"));
+                etab.setLivraison(rs.getBoolean("livraison"));
+                etab.setClimatisation(rs.getBoolean("climatisation"));
+                etab.setAnimaux(rs.getBoolean("animaux"));
+                Categorie c = new Categorie(4, "Restaurant", "Restaurant");
+                String requete2 = "SELECT * from sous__categorie where id='" + rs.getInt("souscat") + "'";
+                PreparedStatement st2 = cn.prepareStatement(requete2);
+
+                ResultSet rs2 = st2.executeQuery(requete2);
+
+                SousCategorie sc = new SousCategorie();
+                while (rs2.next()) {
+                    sc.setId(rs2.getInt(1));
+
+                    sc.setIdcategorie(c);
+                    sc.setNom(rs2.getString(3)); // oubien 3 
+
+                }
+
+                etab.setSouscat(sc);
+                myList.add(etab);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return myList;
+     }
 
     public ObservableList<Etablissement> ListRestaurant() {
         ObservableList<Etablissement> myList = FXCollections.observableArrayList();
         Connection cn = MyConnexion.getInstance().getConnection();
         try {
-            String requete = "SELECT * from etablissement where categorie='Restaurant'";
+            String requete = "SELECT * from etablissement where categorie='Restaurant' and etat='actif' ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
@@ -228,7 +287,7 @@ public class ListEtablissement {
 
         }
         try {
-            String requete = "SELECT * from etablissement where categorie='Restaurant' and souscat='" + i + "' ORDER BY " + trisq + " DESC ";
+            String requete = "SELECT * from etablissement where categorie='Restaurant' and etat='actif' and souscat='" + i + "' ORDER BY " + trisq + " DESC ";
             System.out.println(requete);
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
@@ -306,7 +365,7 @@ public class ListEtablissement {
         }
 
         try {
-            String requete = "Select * from etablissement where categorie='Restaurant' ORDER BY " + trisq + " DESC";
+            String requete = "Select * from etablissement where categorie='Restaurant' and etat='actif' ORDER BY " + trisq + " DESC";
             System.out.println(requete);
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
@@ -440,7 +499,7 @@ public class ListEtablissement {
         ObservableList<Etablissement> myList = FXCollections.observableArrayList();
         Connection cn = MyConnexion.getInstance().getConnection();
         try {
-            String requete = "SELECT * from etablissement where categorie='Hotel'";
+            String requete = "SELECT * from etablissement where categorie='Hotel' and etat='actif' ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
@@ -527,7 +586,7 @@ public class ListEtablissement {
             trisq = "moyservice";
         }
 
-        String requete2 = "select id from sous__categorie where nom='" + scvalue + "'";
+        String requete2 = "select id from sous__categorie where nom='" + scvalue + "' and etat='actif'";
 
         Statement st2 = cn.createStatement();
         ResultSet rs2 = st2.executeQuery(requete2);
@@ -537,7 +596,7 @@ public class ListEtablissement {
 
         }
         try {
-            String requete = "SELECT * from etablissement where categorie='Hotel' and souscat='" + i + "' ORDER BY " + trisq + " DESC ";
+            String requete = "SELECT * from etablissement where categorie='Hotel' and etat='actif' and souscat='" + i + "' ORDER BY " + trisq + " DESC ";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
@@ -624,7 +683,7 @@ public class ListEtablissement {
         }
 
         try {
-            String requete = "Select * from etablissement where categorie='Hotel' ORDER BY " + trisq + " DESC";
+            String requete = "Select * from etablissement where categorie='Hotel' and etat='actif' ORDER BY " + trisq + " DESC";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
@@ -704,7 +763,7 @@ public class ListEtablissement {
         ObservableList<Etablissement> myList = FXCollections.observableArrayList();
         Connection cn = MyConnexion.getInstance().getConnection();
         try {
-            String requete = "SELECT * from etablissement where categorie='Espace culturel'";
+            String requete = "SELECT * from etablissement where categorie='Espace culturel' and etat='actif'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
@@ -798,7 +857,7 @@ public class ListEtablissement {
 
         }
         try {
-            String requete = "SELECT * from etablissement where categorie='Espace culturel' and souscat='" + i + "' ORDER BY " + trisq + " DESC ";
+            String requete = "SELECT * from etablissement where categorie='Espace culturel' and etat='actif' and souscat='" + i + "' ORDER BY " + trisq + " DESC ";
             System.out.println(requete);
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
@@ -876,7 +935,7 @@ public class ListEtablissement {
         }
 
         try {
-            String requete = "Select * from etablissement where categorie='Espace culturel' ORDER BY " + trisq + " DESC";
+            String requete = "Select * from etablissement where categorie='Espace culturel' and etat='actif' ORDER BY " + trisq + " DESC";
             System.out.println(requete);
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
@@ -946,7 +1005,7 @@ public class ListEtablissement {
         ObservableList<Etablissement> myList = FXCollections.observableArrayList();
         Connection cn = MyConnexion.getInstance().getConnection();
         try {
-            String requete = "SELECT * from etablissement where categorie='Beauté et bien être'";
+            String requete = "SELECT * from etablissement where categorie='Beauté et bien être' and etat='actif'";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
@@ -1040,7 +1099,7 @@ public class ListEtablissement {
 
         }
         try {
-            String requete = "SELECT * from etablissement where categorie='Beauté et bien être' and souscat='" + i + "' ORDER BY " + trisq + " DESC ";
+            String requete = "SELECT * from etablissement where categorie='Beauté et bien être' and etat='actif' and souscat='" + i + "' ORDER BY " + trisq + " DESC ";
             System.out.println(requete);
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);
@@ -1118,7 +1177,7 @@ public class ListEtablissement {
         }
 
         try {
-            String requete = "Select * from etablissement where categorie='Beauté et bien être' ORDER BY " + trisq + " DESC";
+            String requete = "Select * from etablissement where categorie='Beauté et bien être' and etat='actif' ORDER BY " + trisq + " DESC";
             System.out.println(requete);
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(requete);

@@ -54,7 +54,8 @@
                         <Label fx:id="nameUserMenu" layoutX="87.0" layoutY="27.0" text="Label" textFill="#dadada" visible="false" />
                         <Label fx:id="labelLastLoginMenu" layoutX="87.0" layoutY="46.0" text="Last Login :" visible="false" />
                         <Label fx:id="LastLoginMenu" layoutX="156.0" layoutY="47.0" text="Label" visible="false" />
-                        <JFXButton fx:id="logoutMenu" layoutX="206.0" layoutY="66.0" prefHeight="25.0" prefWidth="79.0" text="Log out" textFill="#aeaeae" visible="false" />
+                        <JFXButton fx:id="logoutMenu" layoutX="206.0" layoutY="66.0" onAction="#Logout" prefHeight="25.0" prefWidth="79.0" text="Log out" textFill="#aeaeae" visible="false" />
+                        <JFXButton fx:id="admin" layoutX="180.0" layoutY="23.0" onAction="#adminpannel" style="-fx-background-color: #ff214f;" text="Admin" textFill="WHITE" visible="false" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="barreRecherche" focusTraversable="true" layoutY="128.0" prefHeight="182.0" prefWidth="300.0" style="-fx-background-color: rgba(0,0,0,.9);">

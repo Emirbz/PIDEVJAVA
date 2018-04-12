@@ -52,6 +52,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import javax.imageio.ImageIO;
 import org.controlsfx.control.Notifications;
+import PIDEV.Views.FirstFrame;
 
 /**
  * FXML Controller class
@@ -160,6 +161,8 @@ public class HomePageController implements Initializable {
     private ScrollPane scrollHomePage;
     @FXML
     private JFXButton settingsProfile;
+    @FXML
+    private JFXButton admin;
 
     /**
      * Initializes the controller class.
@@ -333,7 +336,10 @@ public class HomePageController implements Initializable {
 
             
 
-  
+if (!(PIDEV.Views.FirstFrame.user== null) && ("Admin".equals(PIDEV.Views.FirstFrame.user.getRole())))
+{
+    admin.setVisible(true);
+}
 
     }
 
@@ -599,6 +605,30 @@ public class HomePageController implements Initializable {
     private void settingPage(ActionEvent event) throws IOException {
         AnchorPane settingPage = FXMLLoader.load(getClass().getResource("../Views/SettingProfileUser.fxml"));
         setNode(settingPage);
+    }
+
+    @FXML
+    private void adminpannel(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Dashboard.fxml"));
+            Parent root = loader.load();
+           
+           
+            ScrollPane r = new ScrollPane(root);
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("Admin");
+            stage.setScene(new Scene(r));
+            stage.show();
+    }
+
+    @FXML
+    private void Logout(ActionEvent event) throws IOException {
+       
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/HomePage.fxml"));
+                    Parent root = loader.load();
+                    HomePageController pu = loader.getController();
+                   
+                  
+                    accueilButton.getScene().setRoot(root);
     }
 
 }

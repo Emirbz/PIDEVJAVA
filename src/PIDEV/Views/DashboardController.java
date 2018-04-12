@@ -84,22 +84,25 @@ public class DashboardController implements Initializable {
         ft.play();
     }
 
-    @FXML
     private void ajout(ActionEvent event) throws IOException, SQLException {
-        ajout = FXMLLoader.load(getClass().getResource("AjoutResto.fxml"));
-           
-        setNode(ajout);
+       
     }
 
     @FXML
     private void list(ActionEvent event) throws IOException, SQLException {
-         list = FXMLLoader.load(getClass().getResource("ListResto.fxml"));
-        setNode(list);
+       
     }
-    @FXML
    public void hiplease ()
     {
         System.out.println("hi");
+    }
+
+    @FXML
+    private void ListEtabs(ActionEvent event) throws IOException, SQLException {
+        AnchorPane valid = FXMLLoader.load(getClass().getResource("ValiderResto.fxml"));
+           
+        setNode(valid);
+        
     }
 
    

@@ -184,6 +184,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
+            <Label fx:id="id" layoutX="58.0" layoutY="63.0" text="Label" visible="false" />
          </children>
       </AnchorPane>
    </content>

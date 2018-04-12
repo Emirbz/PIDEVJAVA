@@ -140,6 +140,7 @@ public class EditrestoController implements Initializable {
     public void setEdit(Button edit) {
         this.edit = edit;
     }
+     @FXML
     private Label id;
     @FXML
     private FontAwesomeIconView image;

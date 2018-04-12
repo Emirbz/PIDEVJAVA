@@ -77,7 +77,6 @@ public class ListrestoController implements Initializable {
     @FXML
     private JFXTextField recherchetext;
     private TableColumn<?, ?> souscat;
-    @FXML
     private FontAwesomeIconView home;
     @FXML
     private ScrollPane pane;
@@ -366,7 +365,6 @@ public class ListrestoController implements Initializable {
 //        ActionEvent event1 = null;
 //        Listrestaurant(event1);
 //    }
-    @FXML
     private void home(MouseEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Home.fxml"));

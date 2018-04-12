@@ -37,6 +37,15 @@ public class Etablissement {
     public void setId(Integer id) {
         this.id = id;
     }
+    private String etat;
+
+    public String getEtat() {
+        return etat;
+    }
+
+    public void setEtat(String etat) {
+        this.etat = etat;
+    }
     private Double latitude;
     private Double longitude;
 

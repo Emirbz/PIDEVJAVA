@@ -19,7 +19,6 @@
       </Label>
       <JFXTextField fx:id="recherchetext" layoutX="104.0" layoutY="117.0" onKeyReleased="#RechercheDynamique" prefHeight="24.0" prefWidth="239.0" promptText="Rechercher votre restaurant ..." />
       <FontAwesomeIconView glyphName="SEARCH" layoutX="321.0" layoutY="137.0" size="20" wrappingWidth="24.0" />
-      <FontAwesomeIconView fx:id="home" glyphName="HOME" layoutX="690.0" layoutY="39.0" onMouseClicked="#home" size="30" />
       <ScrollPane fx:id="pane" layoutX="35.0" layoutY="179.0" prefHeight="572.0" prefWidth="1176.0" />
       <ImageView fitHeight="31.0" fitWidth="38.0" layoutX="354.0" layoutY="113.0" onMouseClicked="#openmap" pickOnBounds="true" preserveRatio="true">
          <image>

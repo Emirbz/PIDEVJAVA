@@ -51,8 +51,6 @@ public class ListHotelController implements Initializable {
     @FXML
     private JFXTextField recherchetext;
     @FXML
-    private FontAwesomeIconView home;
-    @FXML
     private ScrollPane pane;
     @FXML
     private JFXComboBox<String> trisouscat;
@@ -262,9 +260,6 @@ public class ListHotelController implements Initializable {
     });
                 }
 
-    @FXML
-    private void home(MouseEvent event) {
-    }
 
     @FXML
     private void openmap(MouseEvent event) throws IOException {

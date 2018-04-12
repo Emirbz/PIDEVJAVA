@@ -71,11 +71,12 @@ public class DivReviewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         rliekd.setVisible(false);
+        
         // TODO
     }    
     
      public void LoadValues(Review r,Etablissement e) throws IOException, SQLException {
-        
+       
         String charname = r.getIduser().getName().substring(0, 1).toUpperCase();
         String charsurname = r.getIduser().getSurname().substring(0, 1).toUpperCase();
         rname.setText(charname + r.getIduser().getName().substring(1) + " " + charsurname + r.getIduser().getSurname().substring(1));
@@ -132,13 +133,20 @@ public class DivReviewController implements Initializable {
       {
           rjaime.setVisible(false);
       }
+      trash.setVisible(false);
          
       if (PIDEV.Views.FirstFrame.user!=null)
              
       {if ((gr.checkreview(PIDEV.Views.FirstFrame.user,r))>0)
       { 
           rjaime.setVisible(false);
-          rliekd.setVisible(true);}}
+          rliekd.setVisible(true);
+      }
+       if (PIDEV.Views.FirstFrame.user.getId()==r.getIduser().getId())
+        {trash.setVisible(true);
+            
+        }
+      }
 
        trash.setOnMouseClicked((MouseEvent event) -> {
                  

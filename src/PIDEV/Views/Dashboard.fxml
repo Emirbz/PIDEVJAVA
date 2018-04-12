@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Views.DashboardController">
+<AnchorPane id="AnchorPane" prefHeight="556.0" prefWidth="1227.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Views.DashboardController">
    <children>
       <JFXToolbar layoutX="184.0" layoutY="14.0" prefHeight="40.0" prefWidth="1360.0" style="-fx-min-height: 42; -fx-background-color: #222D32;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <Label prefHeight="23.0" prefWidth="228.0" style="-fx-font-size: 20; -fx-text-fill: #7387A8; -fx-font-weight: bold;" text="♥♥♥" BorderPane.alignment="CENTER">
+            <Label prefHeight="23.0" prefWidth="228.0" style="-fx-font-size: 20; -fx-text-fill: #7387A8; -fx-font-weight: bold;" text="Admin Dashboard" BorderPane.alignment="CENTER">
                <padding>
                   <Insets left="40.0" />
                </padding>
@@ -33,10 +33,10 @@
             <Label text="Label" BorderPane.alignment="CENTER" />
          </bottom>
       </JFXToolbar>
-      <VBox layoutY="40.0" prefHeight="720.0" prefWidth="140.0" style="-fx-background-color: #2A3F54;">
+      <VBox layoutY="40.0" prefHeight="552.0" prefWidth="140.0" style="-fx-background-color: #2A3F54;">
          <children>
             <Label prefHeight="60.0" prefWidth="140.0" style="-fx-alignment: center; -fx-font-size: 16; -fx-text-fill: #7387A8; -fx-border-color: #7387A8; -fx-border-width: 0 0 2 0;" text="NAVIGATION" />
-            <JFXButton fx:id="btnAjout" onAction="#ajout" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: CENTER-left;" text="Ajout" textFill="#a1aec4">
+            <JFXButton fx:id="btnAjout" onAction="#ListEtabs" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: CENTER-left;" text="Etabs" textFill="#a1aec4">
                <font>
                   <Font name="Roboto Bold" size="14.0" />
                </font>
@@ -44,12 +44,12 @@
                   <FontAwesomeIconView fill="#a1aec4" glyphName="DASHBOARD" size="17.0" wrappingWidth="43.0" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnList" layoutX="10.0" layoutY="67.0" onAction="#list" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: center-left;" text="List" textFill="#a1aec4">
+            <JFXButton fx:id="btnList" layoutX="10.0" layoutY="67.0" onAction="#list" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: center-left;" text="Valider" textFill="#a1aec4">
                <font>
                   <Font name="Roboto Bold" size="14.0" />
                </font>
                <graphic>
-                  <MaterialDesignIconView fill="#a1aec4" glyphName="SHOPPING" size="17.0" wrappingWidth="42.99997329711914" />
+                  <MaterialDesignIconView fill="#a1aec4" glyphName="HOME" size="17.0" text="" wrappingWidth="42.99997329711914" />
                </graphic>
             </JFXButton>
             <JFXButton fx:id="btnContacts" layoutX="10.0" layoutY="109.0" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: center-left;" text="Contacts" textFill="#a1aec4">
@@ -94,7 +94,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <ScrollPane layoutX="140.0" layoutY="41.0" prefHeight="720.0" prefWidth="1223.0">
+      <ScrollPane layoutX="140.0" layoutY="41.0" prefHeight="548.0" prefWidth="1139.0">
          <content>
             <AnchorPane fx:id="holderPane" prefHeight="716.0" prefWidth="1224.0" />
          </content>

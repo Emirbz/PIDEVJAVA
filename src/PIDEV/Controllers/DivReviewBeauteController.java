@@ -136,7 +136,12 @@ public class DivReviewBeauteController implements Initializable {
       {if ((gr.checkreview(PIDEV.Views.FirstFrame.user,r))>0)
       { 
           rjaime.setVisible(false);
-          rliekd.setVisible(true);}}
+          rliekd.setVisible(true);}
+       if (PIDEV.Views.FirstFrame.user.getId()==r.getIduser().getId())
+        {trash.setVisible(true);
+            
+        }
+      }
 
        trash.setOnMouseClicked((MouseEvent event) -> {
                  

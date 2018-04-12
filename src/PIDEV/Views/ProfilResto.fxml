@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
-<?import com.jfoenix.controls.JFXColorPicker?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -344,7 +343,6 @@
                         <JFXButton fx:id="reserver" layoutX="348.0" layoutY="341.0" onMouseClicked="#reserver" text="Réserver" />
                         <JFXButton fx:id="listReservation" layoutX="490.0" layoutY="340.0" onMouseClicked="#listReservationPage" text="List Reservation" />
                         <Label fx:id="idEtab" layoutX="619.0" layoutY="345.0" text="Label" visible="false" />
-                        <JFXColorPicker layoutX="708.0" layoutY="546.0" />
                         <StackPane fx:id="stackpane" layoutX="27.0" layoutY="280.0" prefHeight="932.0" prefWidth="1260.0" visible="false" />
                         <StackPane fx:id="stackpane1" layoutX="37.0" layoutY="290.0" prefHeight="932.0" prefWidth="1260.0" visible="false" />
                         <StackPane fx:id="stackpane2" layoutX="37.0" layoutY="290.0" prefHeight="932.0" prefWidth="1260.0" visible="false" />

@@ -91,6 +91,19 @@ public class EditEtablissement {
         pre.executeUpdate();
         
     }
+     public void ModifierEtat(int item) throws SQLException {
+        Connection cn = MyConnexion.getInstance().getConnection();
+        String req = "UPDATE etablissement SET etat='actif' where id=?";
+                   
+        PreparedStatement pre = cn.prepareStatement(req);
+        
+        
+        pre.setInt(1,item);
+         
+       
+        pre.executeUpdate();
+        
+    }
     public void ModifierHotel(Etablissement etab,int item) throws SQLException {
         Connection cn = MyConnexion.getInstance().getConnection();
         String req = "UPDATE etablissement SET "
