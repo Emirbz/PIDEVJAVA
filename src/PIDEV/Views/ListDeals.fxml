@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#key" prefHeight="758.0" prefWidth="1352.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.ListDealsController">
+    <children>
+        <ScrollPane fx:id="pane" layoutX="84.0" layoutY="179.0" prefHeight="540.0" prefWidth="1218.0" />
+        <Label layoutX="84.0" layoutY="25.0" prefHeight="85.0" prefWidth="397.0" text="Liste des Deals">
+            <font>
+                <Font name="Bodoni MT Condensed" size="69.0" />
+            </font>
+        </Label>
+        <JFXTextField fx:id="recherchedeal" layoutX="104.0" layoutY="117.0" onKeyReleased="#Search" prefHeight="24.0" prefWidth="239.0" promptText="Rechercher un Deal..." unFocusColor="#fffdfd" />
+        <FontAwesomeIconView glyphName="SEARCH" layoutX="321.0" layoutY="137.0" size="20" wrappingWidth="24.0" />
+      <JFXComboBox fx:id="tri" layoutX="379.0" layoutY="117.0" promptText="Trier les Deals" />
+      <FontAwesomeIconView glyphName="SLIDERS" layoutX="353.0" layoutY="139.0" size="20" wrappingWidth="18.411458015441895" />
+       <JFXButton fx:id="reclamerbtn" buttonType="RAISED" layoutX="1187.0" layoutY="140.0" ripplerFill="#ffc3c3" style="-fx-background-color: ff214f; -fx-background-radius: 20 20;" text="Réclamer" textFill="WHITE">
+         <graphic>
+            <MaterialDesignIconView fill="WHITE" glyphName="MESSAGE_ALERT" size="20" />
+         </graphic>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <StackPane fx:id="reclamation" prefHeight="762.0" prefWidth="1350.0" visible="false" />
+    </children>
+</AnchorPane>

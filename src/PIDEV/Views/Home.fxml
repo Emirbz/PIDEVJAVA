@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="home" prefHeight="758.0" prefWidth="1352.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.HomeController">
+   <children>
+      <JFXButton fx:id="ajout" layoutX="182.0" layoutY="427.0" onAction="#ajout" text="Ajout " />
+      <JFXButton fx:id="list" layoutX="422.0" layoutY="427.0" onAction="#list" text="List" />
+      <Label fx:id="idUsername" layoutX="287.0" layoutY="188.0" text="Label" />
+   </children>
+</AnchorPane>

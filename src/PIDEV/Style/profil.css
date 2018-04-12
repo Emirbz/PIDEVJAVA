@@ -1,0 +1,24 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5 avr. 2018, 00:20:29
+    Author     : Emir
+*/
+
+.pane
+{
+    -fx-border-radius: 50 20 ;
+-fx-background-radius: 50 20;
+-fx-background-color:#fcfcfc;
+}
+.paneajout
+{
+    -fx-border-radius: 10  ;
+-fx-background-radius: 10 ;
+-fx-background-color:#F7F7F7;
+-fx-border-color:#D8D8D8;
+
+}

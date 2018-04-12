@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="218.0" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.FXMLDocumentController">
+   <children>
+      <VBox prefHeight="357.0" prefWidth="320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextArea id="Nom" fx:id="categorie" prefHeight="60.0" prefWidth="320.0" promptText="Nom Categorie">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="20.0" />
+               </VBox.margin>
+            </TextArea>
+            <ComboBox fx:id="combo" prefWidth="150.0" />
+            <TextArea id="Description" fx:id="desciption" layoutX="20.0" layoutY="30.0" prefHeight="60.0" prefWidth="320.0" promptText="Description">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="20.0" />
+               </VBox.margin>
+            </TextArea>
+            <HBox prefHeight="47.0" prefWidth="320.0">
+               <children>
+                  <Button id="ajouter" mnemonicParsing="false" onAction="#ajouter" prefHeight="57.0" prefWidth="160.0" text="ajout" />
+                  <Button id="annulé" cancelButton="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="160.0" text="annule" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

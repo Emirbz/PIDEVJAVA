@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="PIDEV.Controllers.AfficheCategorieController">
+   <children>
+      <Label fx:id="NomCat" layoutX="182.0" layoutY="90.0" prefHeight="17.0" prefWidth="150.0" text="Nom Categorie" />
+      <Label fx:id="descricat" layoutX="182.0" layoutY="148.0" text="Description" />
+      <Button fx:id="affiche" layoutX="182.0" layoutY="200.0" mnemonicParsing="false" onAction="#afficherCat" text="Button" />
+   </children>
+</AnchorPane>

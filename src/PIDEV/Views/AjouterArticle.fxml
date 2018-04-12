@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="710.0" style="-fx-background-color: F2F2F2F2;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.AjouterArticleController">
+    <stylesheets>
+        <URL value="@ajouterarticle.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="AjouterArticleButton" layoutX="246.0" layoutY="465.0" mnemonicParsing="false" onAction="#AjouterArticle" prefHeight="46.0" prefWidth="150.0" text="     Ajouter Article">
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="AnnulerArticleBUtton" layoutX="483.0" layoutY="465.0" mnemonicParsing="false" onAction="#AnnulerArticle" prefHeight="46.0" prefWidth="129.0" text="      Annuler">
+         <HBox.margin>
+            <Insets left="400.0" />
+         </HBox.margin>
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="249.0" layoutY="252.0" text="Titre article" textFill="#a10303">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="247.0" layoutY="325.0" text="Contenu de l'article" textFill="#a10303">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="ListThemeArticle" layoutX="245.0" layoutY="206.0" prefWidth="150.0">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </ComboBox>
+      <Label layoutX="245.0" layoutY="172.0" text="Choisir un theme" textFill="#a10303">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Pane layoutY="-2.0" prefHeight="562.0" prefWidth="200.0" style="-fx-background-color: #4B4B4B;">
+         <children>
+            <Button layoutX="8.0" layoutY="213.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="185.0" text="Page d'acceuil">
+               <font>
+                  <Font name="Lucida Sans Unicode" size="19.0" />
+               </font>
+            </Button>
+            <Button layoutX="8.0" layoutY="270.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" text="Les articles">
+               <font>
+                  <Font name="Lucida Sans Unicode" size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label layoutX="295.0" layoutY="36.0" prefHeight="68.0" prefWidth="377.0" text="Ajouter un article">
+         <font>
+            <Font name="Arial Black" size="37.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="37.0" fitWidth="35.0" layoutX="245.0" layoutY="473.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/add.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="497.0" layoutY="476.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/annuler.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="58.0" layoutX="234.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/img_248018.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="TitreArticle" layoutX="247.0" layoutY="287.0" prefHeight="25.0" prefWidth="211.0" />
+      <TextField fx:id="ContenuArticle" layoutX="246.0" layoutY="356.0" prefHeight="25.0" prefWidth="211.0" />
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="510.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/images.png" />
+         </image></ImageView>
+      <Button fx:id="ajoutimg" layoutX="541.0" layoutY="356.0" mnemonicParsing="false" onAction="#addImage" text="Ajouter une image" />
+   </children>
+</AnchorPane>

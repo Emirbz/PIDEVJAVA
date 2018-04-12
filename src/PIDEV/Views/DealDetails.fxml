@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="580.0" prefWidth="1093.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.DealDetailsController">
+    <children>
+        <Label layoutX="19.0" layoutY="17.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Détails du Deal" />
+        <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
+        <AnchorPane layoutX="814.0" layoutY="77.0" prefHeight="307.0" prefWidth="270.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: FF214F; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+            <children>
+                <Circle fx:id="imguser" fill="#d7dadd" layoutX="135.0" layoutY="61.0" radius="47.0" stroke="#a49f9f" strokeType="INSIDE" />
+                <Separator layoutX="13.0" layoutY="184.0" prefHeight="4.0" prefWidth="244.0" />
+                <Label fx:id="username" layoutX="41.0" layoutY="127.0" prefHeight="17.0" prefWidth="189.0" style="-fx-text-fill: #162E3B; -fx-font-size: 16; -fx-font-weight: bold; -fx-alignment: center;" text="Dan Mlayah" />
+                <Separator layoutX="13.0" layoutY="222.0" prefHeight="4.0" prefWidth="244.0" />
+                <Separator layoutX="14.0" layoutY="261.0" prefHeight="4.0" prefWidth="244.0" />
+                <Separator layoutX="14.0" layoutY="300.0" prefHeight="4.0" prefWidth="244.0" />
+                <Label layoutX="44.0" layoutY="196.0" prefHeight="17.0" prefWidth="94.0" text="Téléphone :">
+                    <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="44.0" layoutY="235.0" prefHeight="17.0" prefWidth="94.0" text="Adresse :">
+                    <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="44.0" layoutY="274.0" prefHeight="17.0" prefWidth="94.0" text="Région :">
+                    <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="tel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="176.0" layoutY="196.0" prefHeight="20.0" prefWidth="80.0" text="1,344" textFill="#918dbc">
+                    <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="adr" alignment="CENTER_RIGHT" layoutX="176.0" layoutY="235.0" prefHeight="20.0" prefWidth="80.0" text="543" textFill="#918dbc">
+                    <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="reg" alignment="CENTER_RIGHT" layoutX="176.0" layoutY="274.0" prefHeight="20.0" prefWidth="80.0" text="13,753" textFill="#918dbc">
+                    <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                    </font>
+                </Label>
+                <FontAwesomeIconView glyphName="PHONE" layoutX="22.0" layoutY="210.0" />
+                <FontAwesomeIconView glyphName="MAP_MARKER" layoutX="22.0" layoutY="249.0" />
+                <FontAwesomeIconView glyphName="MAP" layoutX="22.0" layoutY="288.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="99.0" layoutY="377.0" prefHeight="166.0" prefWidth="660.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: ff214f; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+            <children>
+                <Separator layoutX="13.0" layoutY="45.0" prefHeight="4.0" prefWidth="244.0" />
+                <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="189.0" style="-fx-text-fill: #162E3B; -fx-font-size: 16; -fx-font-weight: bold; -fx-alignment: left;" text="Description" />
+                <Label fx:id="description" alignment="TOP_LEFT" layoutX="14.0" layoutY="56.0" prefHeight="98.0" prefWidth="630.0" text="Bs in Computer Science from Kenyatta University in Nairobi" wrapText="true">
+                    <font>
+                        <Font name="Roboto Light" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="99.0" layoutY="77.0" prefHeight="268.0" prefWidth="646.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-border-color: ff214f;">
+            <children>
+            <Label fx:id="jourrestants1" layoutX="541.0" layoutY="198.0" prefHeight="17.0" prefWidth="100.0" style="-fx-alignment: center; -fx-background-color: #00C0EF; -fx-background-radius: 6; -fx-text-fill: white; -fx-font-size: 12; -fx-font-weight: bold;" text="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+                <Separator layoutX="13.0" layoutY="193.0" prefHeight="3.0" prefWidth="630.0" />
+                <Separator layoutX="13.0" layoutY="222.0" prefHeight="2.0" prefWidth="630.0" />
+                <Label layoutX="14.0" layoutY="196.0" prefHeight="17.0" prefWidth="94.0" text="Validité (jours)">
+                    <font>
+                        <Font name="Roboto Light" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="226.0" prefHeight="20.0" prefWidth="124.0" text="Places restantes">
+                    <font>
+                        <Font name="Roboto Light" size="14.0" />
+                    </font>
+                </Label>
+                <Pane layoutY="-3.0" prefHeight="156.0" prefWidth="655.0">
+                    <children>
+                  <ImageView fx:id="img" fitHeight="149.0" fitWidth="655.0" layoutX="1.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="nom" layoutX="6.0" layoutY="116.0" prefHeight="30.0" prefWidth="143.0" text="Dan Mlayah" textFill="#fffefe">
+                            <font>
+                                <Font name="Roboto Medium" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Label layoutX="12.0" layoutY="166.0" prefHeight="17.0" prefWidth="94.0" text="Rating">
+                    <font>
+                        <Font name="Roboto Light" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="jourrestants" layoutX="619.0" layoutY="198.0" prefHeight="17.0" prefWidth="22.0" style="-fx-alignment: center; -fx-background-color: #00C0EF; -fx-background-radius: 6; -fx-text-fill: white; -fx-font-size: 12; -fx-font-weight: bold;" text="21">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Label>
+                <Label fx:id="nbrparticipants" layoutX="619.0" layoutY="228.0" prefHeight="17.0" prefWidth="22.0" style="-fx-alignment: center; -fx-background-color: #00A65A; -fx-background-radius: 6; -fx-text-fill: white; -fx-font-size: 12; -fx-font-weight: bold;" text="21">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Label>
+                <HBox fx:id="rating" alignment="CENTER" layoutX="546.0" layoutY="155.0" prefHeight="39.0" prefWidth="100.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="814.0" layoutY="444.0" prefHeight="98.0" prefWidth="270.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+            <children>
+                <Label layoutX="26.0" layoutY="14.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Prenez ce Deal" />
+                <VBox layoutX="37.0" layoutY="48.0" spacing="10.0">
+                    <children>
+                        <VBox spacing="10.0" />
+                        <VBox />
+                        <VBox />
+                        <VBox />
+                    </children>
+                </VBox>
+                <JFXButton fx:id="achat" layoutX="38.0" layoutY="51.0" prefHeight="30.0" prefWidth="176.0" style="-fx-background-color: #3C8DBC;" text="Acheter" textFill="WHITE">
+                    <font>
+                        <Font name="Roboto Medium" size="15.0" />
+                    </font>
+                </JFXButton>
+            <Label fx:id="nbrachat" layoutX="192.0" layoutY="20.0" prefHeight="17.0" prefWidth="22.0" style="-fx-alignment: center; -fx-background-color: #3C8DBC; -fx-background-radius: 6; -fx-text-fill: white; -fx-font-size: 12; -fx-font-weight: bold;" text="21">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            </children>
+        </AnchorPane>
+      <StackPane fx:id="note" layoutY="-3.0" prefHeight="582.0" prefWidth="1216.0" visible="false" />
+    </children>
+</AnchorPane>

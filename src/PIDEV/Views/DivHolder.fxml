@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="226.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.DivHolderController">
+      <children>
+          <Label fx:id="nom" alignment="CENTER" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="226.0" text="Burger" textFill="#514f4f">
+              <font>
+                  <Font name="Roboto Condensed Bold" size="20.0" />
+              </font>
+          </Label>
+          <ImageView fx:id="img" fitHeight="184.0" fitWidth="226.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+              <effect>
+                  <DropShadow color="#ebebeb" />
+              </effect>
+          </ImageView>
+          <Label fx:id="desc" layoutX="5.0" layoutY="228.0" prefHeight="20.0" prefWidth="226.0" text="Lorem ipsum is a dummy text" textFill="#616161">
+              <font>
+                  <Font name="Roboto Light" size="16.0" />
+              </font>
+          </Label>
+          <Label fx:id="prix" layoutX="5.0" layoutY="290.0" text="\$19" textFill="#1ea362">
+              <font>
+                  <Font size="15.0" />
+              </font>
+          </Label>
+          <JFXButton fx:id="details" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="142.0" layoutY="275.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" ripplerFill="WHITE" style="-fx-background-color: ff214f; -fx-background-radius: 20 20;" text="Détails" textAlignment="CENTER" textFill="WHITE">
+              <font>
+                  <Font name="Roboto Condensed Bold" size="16.0" />
+              </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+          </JFXButton>
+      <Label fx:id="id" layoutX="184.0" layoutY="16.0" text="Label" visible="false" />
+      <Label fx:id="oldprix" layoutX="60.0" layoutY="290.0" text="\$19" textFill="#f21f1f">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <HBox fx:id="rt" alignment="CENTER_LEFT" layoutX="7.0" layoutY="253.0" prefHeight="37.0" prefWidth="135.0" />
+      </children>
+      <effect>
+          <DropShadow color="#d3cdcd" />
+      </effect>
+  </Pane>

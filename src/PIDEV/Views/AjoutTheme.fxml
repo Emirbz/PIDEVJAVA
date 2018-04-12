@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="543.0" prefWidth="714.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.AjoutThemeController">
+    <stylesheets>
+        <URL value="@ajouttheme.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="Nomthemebutton" layoutX="245.0" layoutY="197.0" promptText="Nom du theme" />
+      <TextField fx:id="DescriptionNameButton" layoutX="245.0" layoutY="272.0" promptText="Description Theme" />
+      <ImageView fx:id="img" fitHeight="153.0" fitWidth="177.0" layoutX="459.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/images.png" />
+         </image></ImageView>
+      <Button fx:id="ajoutimg" layoutX="252.0" layoutY="341.0" mnemonicParsing="false" onAction="#addImage" text="ajouter une image" />
+      <Button fx:id="AjoutThemeButton" layoutX="237.0" layoutY="451.0" mnemonicParsing="false" onAction="#AjoutTheme" prefHeight="54.0" prefWidth="162.0" text="Ajouter theme" />
+      <Button fx:id="AnnuleThemeButton" layoutX="497.0" layoutY="451.0" mnemonicParsing="false" onAction="#Annuler" prefHeight="54.0" prefWidth="146.0" text="    Annuler" />
+      <Pane prefHeight="543.0" prefWidth="195.0" style="-fx-background-color: #4B4B4B;">
+         <children>
+            <Button fx:id="addarticle" layoutX="6.0" layoutY="202.0" mnemonicParsing="false" onAction="#adarticle" prefHeight="47.0" prefWidth="183.0" text="AjouterArticle">
+               <font>
+                  <Font name="Lucida Sans Unicode" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="ListeTheme" layoutX="6.0" layoutY="261.0" mnemonicParsing="false" onAction="#AfficherTheme" prefHeight="47.0" prefWidth="183.0" text="Liste des themes">
+               <font>
+                  <Font name="Lucida Sans Unicode" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="showarticle" layoutX="6.0" layoutY="321.0" mnemonicParsing="false" onAction="#showarticle" prefHeight="47.0" prefWidth="183.0" text="Liste Article">
+               <font>
+                  <Font name="Lucida Sans Unicode" size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label layoutX="308.0" layoutY="40.0" prefHeight="68.0" prefWidth="377.0" text="Ajouter un theme">
+         <font>
+            <Font name="Arial Black" size="37.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="76.0" fitWidth="73.0" layoutX="236.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/img_248018.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="245.0" layoutY="167.0" text="Nom du theme:" textFill="#a10303">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="245.0" layoutY="241.0" text="Description du theme:" textFill="#a10303">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="247.0" layoutY="313.0" text="Choisir une image:" textFill="#a10303">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="36.0" fitWidth="37.0" layoutX="238.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/add.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="30.0" layoutX="517.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/annuler.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
