@@ -405,11 +405,17 @@ public class ProfilHotelController implements Initializable {
                 Reviewslist(etab);
                 RestoProfil(etab.getId());
                
+                 final String imageURINOTIF = new File("C://wamp64/www/PIDEV/web/devis/" + etab.getDevis_name()).toURI().toString();
+                 ImageView Notif = new ImageView();
+                 Notif.setFitHeight(80);
+                 Notif.setFitWidth(80);
+        Notif.setImage(new Image(imageURI4));
+               
                 Notifications.create()
                         .title(null)
                         .text("Merci de noter "+etab.getName())
                         .graphic(new ImageView(new Image(imageURI4)))
-                        .graphic(image1)
+                        .graphic(Notif)
                         .hideAfter(Duration.seconds(5))
                          .position(Pos.BOTTOM_RIGHT)
                         
@@ -529,9 +535,9 @@ public class ProfilHotelController implements Initializable {
 
             try {
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/DivReview.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/DivReviewHotel.fxml"));
                 Parent root = (Pane) loader.load();
-                DivReviewController DHC = loader.getController();
+                DivReviewHotelController DHC = loader.getController();
                 DHC.LoadValues(d, e);
 
                 //   c.setVgap(40);

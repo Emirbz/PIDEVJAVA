@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: rgb(0,0,0,.9);" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="PIDEV.Controllers.DeleteProfileController">
+   <children>
+      <Label graphicTextGap="6.0" layoutX="67.0" layoutY="14.0" prefHeight="20.0" prefWidth="66.0" text="Delete?" textFill="#dadada">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="#dadada" glyphName="WARNING" />
+         </graphic>
+      </Label>
+      <JFXButton fx:id="yesButton" layoutX="39.0" layoutY="50.0" onAction="#deleteAction" style="-fx-background-color: black;" text="Yes" textFill="#dadada" />
+      <JFXButton fx:id="noButton" layoutX="142.0" layoutY="50.0" onAction="#closeindow" style="-fx-background-color: ff214f;" text="No" textFill="#dadada" />
+   </children>
+</AnchorPane>

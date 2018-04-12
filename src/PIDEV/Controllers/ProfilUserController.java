@@ -23,11 +23,16 @@ import java.util.logging.Logger;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
 import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
@@ -36,6 +41,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import javax.imageio.ImageIO;
 import org.controlsfx.control.Rating;
@@ -47,114 +54,41 @@ import org.controlsfx.control.Rating;
  */
 public class ProfilUserController implements Initializable {
 
+    @FXML
     private Label membreDepuis;
+    @FXML
     private Label nomUser;
+    @FXML
     private Separator seperateProf;
+    @FXML
     private Separator seperateList;
+    @FXML
     private Separator seperateRev;
+    @FXML
     private Separator seperateReservation;
+    @FXML
     private Separator seperateFav;
+    @FXML
     private Circle photoProfil;
-    AnchorPane prof,res,pricing,profiles,widgets,controls,list,listrev;
+    @FXML
+    JFXButton edit;
+    AnchorPane myfavs,prof,res,pricing,profiles,widgets,controls,list,listrev;
+    @FXML
     private AnchorPane main;
     @FXML
-    private JFXTabPane tab;
+    private FontAwesomeIconView close;
     @FXML
-    private ImageView image2;
+    private JFXButton myListings;
     @FXML
-    private ImageView image1;
+    private JFXButton reviews;
     @FXML
-    private Label name;
+    private JFXButton profile;
     @FXML
-    private Label phone;
+    private JFXButton reservations;
     @FXML
-    private Label email;
+    private JFXButton favoris;
     @FXML
-    private Label address;
-    @FXML
-    private Label description;
-    @FXML
-    private JFXCheckBox parking;
-    @FXML
-    private JFXCheckBox cartecredit;
-    @FXML
-    private JFXCheckBox chaiseroulante;
-    @FXML
-    private JFXCheckBox fumer;
-    @FXML
-    private JFXCheckBox alcool;
-    @FXML
-    private JFXCheckBox terasse;
-    @FXML
-    private JFXCheckBox wifi;
-    @FXML
-    private JFXCheckBox animaux;
-    @FXML
-    private JFXCheckBox livraison;
-    @FXML
-    private JFXCheckBox reservation;
-    @FXML
-    private JFXCheckBox climatisation;
-    @FXML
-    private Label lundisamedio;
-    @FXML
-    private Label lundisamedif;
-    @FXML
-    private Label dimancheo;
-    @FXML
-    private Label dimanchef;
-    @FXML
-    private ImageView image3;
-    @FXML
-    private ImageView image4;
-    @FXML
-    private ImageView image5;
-    @FXML
-    private Label total;
-    @FXML
-    private Label qualitelabel;
-    @FXML
-    private Label servicelabel;
-    @FXML
-    private Label evaluation;
-    @FXML
-    private Label dejaevaluated;
-    @FXML
-    private AnchorPane panecom;
-    @FXML
-    private JFXTextField titre;
-    @FXML
-    private JFXTextArea comment;
-    @FXML
-    private JFXButton AddReview;
-    @FXML
-    private Rating qualite;
-    @FXML
-    private Rating service;
-    @FXML
-    private GoogleMapView googleMapView;
-    @FXML
-    private Circle circleuser;
-    @FXML
-    private Label nomuser;
-    @FXML
-    private Label dateuser;
-    @FXML
-    private Label phoneuser;
-    @FXML
-    private Label addressuser;
-    @FXML
-    private Label dejanote;
-    @FXML
-    private JFXButton reserver;
-    @FXML
-    private JFXButton listReservation;
-    @FXML
-    private Label idEtab;
-    @FXML
-    private Tab tabX;
-    @FXML
-    private AnchorPane scroll;
+    private FontAwesomeIconView Home;
     /**
      * Initializes the controller class.
      */
@@ -195,8 +129,9 @@ public class ProfilUserController implements Initializable {
         
         try {
             list = FXMLLoader.load(getClass().getResource("../Views/MyListing.fxml"));
+           myfavs = FXMLLoader.load(getClass().getResource("../Views/MyFavoris.fxml"));
            prof = FXMLLoader.load(getClass().getResource("../Views/profileInfoUser.fxml"));
-           res = FXMLLoader.load(getClass().getResource("../Views/ReservationProfilUser.fxml"));
+//        edit = FXMLLoader.load(getClass().getResource("../Views/EditProfile.fxml"));
            listrev = FXMLLoader.load(getClass().getResource("../Views/MyReviews.fxml"));
 //             prof = FXMLLoader.load(getClass().getResource("../Views/profileInfoUser.fxml"));
 //             prof = FXMLLoader.load(getClass().getResource("../Views/profileInfoUser.fxml"));
@@ -205,7 +140,50 @@ public class ProfilUserController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ProfilUserController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
             
+//         FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/EditProfile.fxml"));
+//            Parent root = loader.load();
+//            EditProfileController ep = loader.getController();
+//            ep.getAjouter().setOnMouseClicked((event) -> {
+//            
+//           
+//            });
+//            AnchorPane profilex = FXMLLoader.load(getClass().getResource("../Views/ProfilUser.fxml"));
+//              FXMLLoader loader2 = new FXMLLoader(getClass().getResource("../Views/HomePage.fxml"));
+//            Parent root2 = loader2.load();
+//            HomePageController hc = loader2.getController();
+//            hc.setNode(profilex);
+//            
+//            
+//           
+//            membreDepuis.getScene().setRoot(root);
+
+
+edit.setOnMouseClicked((event) -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/EditProfile.fxml"));
+                Parent root = loader.load();
+                EditProfileController ec = loader.getController();
+                
+                AnchorPane r = new AnchorPane(root);
+                Stage stage = new Stage(StageStyle.DECORATED);
+                stage.setTitle("Modifier user");
+                stage.setScene(new Scene(r));
+                stage.show();
+                ec.getAjouter().setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        
+                        stage.close();
+                        initialize(url, rb);
+                        
+                    }
+                });
+            } catch (IOException ex) {
+                Logger.getLogger(ProfilUserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+});
        
     }    
     
@@ -222,7 +200,9 @@ public class ProfilUserController implements Initializable {
         ft.play();
     }
 
-    private void reservation(MouseEvent event) {
+    @FXML
+    private void reservation(MouseEvent event) throws IOException {
+     res = FXMLLoader.load(getClass().getResource("../Views/ReservationProfilUser.fxml"));
         setNode(res);
         seperateProf.setStyle("");
         seperateFav.setStyle("");
@@ -232,6 +212,7 @@ public class ProfilUserController implements Initializable {
         
     }
 
+    @FXML
     private void profile(MouseEvent event) {
         setNode(prof);
         seperateReservation.setStyle("");
@@ -241,6 +222,7 @@ public class ProfilUserController implements Initializable {
         seperateRev.setStyle("");
     }
 
+    @FXML
     private void closeWindow(MouseEvent event) {
         Platform.exit();
     }
@@ -258,6 +240,7 @@ public class ProfilUserController implements Initializable {
         seperateRev.setStyle("");
     }
 
+    @FXML
     private void myListing(MouseEvent event) {
               setNode(list);
         seperateReservation.setStyle("");
@@ -267,6 +250,7 @@ public class ProfilUserController implements Initializable {
         seperateRev.setStyle("");
     }
 
+    @FXML
     private void MyReviews(MouseEvent event) {
           setNode(listrev);
         seperateReservation.setStyle("");
@@ -277,16 +261,25 @@ public class ProfilUserController implements Initializable {
     }
 
     @FXML
-    private void back(MouseEvent event) {
+    private void MyFavs(ActionEvent event) {
+        setNode(myfavs);
+        seperateReservation.setStyle("");
+        seperateProf.setStyle("");
+        seperateFav.setStyle("-fx-background-color:  #ff214f;");
+        seperateList.setStyle("");
+        seperateRev.setStyle("");
+        
     }
 
     @FXML
-    private void reserver(MouseEvent event) {
+    private void Home(MouseEvent event) throws IOException {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/HomePage.fxml"));
+                Parent root = loader.load();
+                HomePageController ec = loader.getController();
+               edit.getScene().setRoot(root);
     }
 
-    @FXML
-    private void listReservationPage(MouseEvent event) {
-    }
+
 
 
     

@@ -66,6 +66,8 @@ public class MyListingController implements Initializable {
             TilePane a = new TilePane();
             Label title = new Label(etab.getName());
             title.setStyle("-fx-font-size:22px;-fx-font-weight: bold");
+            Label cat = new Label(etab.getCategorie());
+            title.setStyle("-fx-font-size:18px;-fx-font-weight: bold");
             Label qualite = new Label("Qualite :");
             qualite.setStyle("-fx-font-size:12px;-fx-font-weight: bold");
 
@@ -97,7 +99,7 @@ public class MyListingController implements Initializable {
                 @Override
                 public void handle(MouseEvent event) {
                     ListEtablissement le = new ListEtablissement();
-                    Etablissement selectedetab = le.ListRestaurant().filtered(e -> e.getId() == Integer.parseInt(id.getText())).get(0);
+                    Etablissement selectedetab = le.ListRestaurantUser().filtered(e -> e.getId() == Integer.parseInt(id.getText())).get(0);
                     editicon.setVisible(true);
 
                     deleteicon.setVisible(true);
@@ -119,7 +121,7 @@ public class MyListingController implements Initializable {
             deleteicon.setOnMouseClicked((event) -> {
                 deleteetab(etab);
             });
-            a.getChildren().add(new VBox(5, new HBox(270, editicon, deleteicon), imgetab, id, title, new HBox(2, qualite, p), new HBox(2, service, pp)));
+            a.getChildren().add(new VBox(5, new HBox(270, editicon, deleteicon), imgetab, id, title,cat, new HBox(2, qualite, p), new HBox(2, service, pp)));
                a.setPadding(new javafx.geometry.Insets(60, 5, 10, 35));
             a.setMaxSize(300, 150);
               a.setPrefColumns(2);
@@ -152,6 +154,10 @@ public class MyListingController implements Initializable {
     }
 
     public void editetab(Etablissement etab, URL url, ResourceBundle rb) {
+        if ("Restaurant".equals(etab.getCategorie()))
+        {
+            
+        
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/EditResto.fxml"));
             Parent root = loader.load();
@@ -165,15 +171,96 @@ public class MyListingController implements Initializable {
             ec.getEdit().setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-
+                    if (ec.controleSaisie())
+                    {
                     stage.close();
                     initialize(url, rb);
+                    }
 
                 }
             });
         } catch (IOException ex) {
             Logger.getLogger(ListrestoController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
+        else if 
+                ("Espace culturel".equals(etab.getCategorie()))
+        {try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/EditCulture.fxml"));
+            Parent root = loader.load();
+           EditCultureController ec = loader.getController();
+            ec.showresto(etab);
+            ScrollPane r = new ScrollPane(root);
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("Modifier etab");
+            stage.setScene(new Scene(r));
+            stage.show();
+            ec.getEdit().setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+ if (ec.controleSaisie())
+                    {
+                    stage.close();
+                    initialize(url, rb);
+                    }
+                }
+            });
+        } catch (IOException ex) {
+            Logger.getLogger(ListrestoController.class.getName()).log(Level.SEVERE, null, ex);
+        }}
+          else if 
+                ("Hotel".equals(etab.getCategorie()))
+        {try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/EditHotel.fxml"));
+            Parent root = loader.load();
+           EditHotelController ec = loader.getController();
+            ec.showresto(etab);
+            ScrollPane r = new ScrollPane(root);
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("Modifier etab");
+            stage.setScene(new Scene(r));
+            stage.show();
+            ec.getEdit().setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                    if (ec.controleSaisie())
+                    {
+                    stage.close();
+                    initialize(url, rb);
+                    }
+                }
+            });
+        } catch (IOException ex) {
+            Logger.getLogger(ListrestoController.class.getName()).log(Level.SEVERE, null, ex);
+        }}
+             else if 
+                ("Beauté et bien être".equals(etab.getCategorie()))
+        {try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/EditBeauté.fxml"));
+            Parent root = loader.load();
+           EditBeautéController ec = loader.getController();
+            ec.showresto(etab);
+            ScrollPane r = new ScrollPane(root);
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("Modifier etab");
+            stage.setScene(new Scene(r));
+            stage.show();
+            ec.getEdit().setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+
+                   if (ec.controleSaisie())
+                    {
+                    stage.close();
+                    initialize(url, rb);
+                    }
+
+                }
+            });
+        } catch (IOException ex) {
+            Logger.getLogger(ListrestoController.class.getName()).log(Level.SEVERE, null, ex);
+        }}
     }
     public void doubleclick(MouseEvent event, Etablissement selectedetab) {
         if (event.getClickCount() == 2) {

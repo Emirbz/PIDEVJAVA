@@ -99,8 +99,6 @@ public class AjoutCultureController implements Initializable {
     @FXML
     private JFXComboBox<String> dimanchef;
     @FXML
-    private Button ajout;
-    @FXML
     private JFXCheckBox parking;
     @FXML
     private JFXCheckBox cartecredit;
@@ -148,6 +146,8 @@ public class AjoutCultureController implements Initializable {
     private ImageView pic3;
     @FXML
     private FontAwesomeIconView image4w;
+    @FXML
+    private Button ajout;
 
     /**
      * Initializes the controller class.
@@ -256,7 +256,7 @@ public class AjoutCultureController implements Initializable {
 
             AddEtablissement addetab = new AddEtablissement();
 
-            addetab.AddRestaurant(E);
+            addetab.AddCulture(E);
              Notifications.create()
                         .title(null)
                         .text("Vote Etablissement a été ajouée en attente la confirmation de l'admin")
@@ -279,7 +279,7 @@ public class AjoutCultureController implements Initializable {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/HomePage.fxml"));
                     Parent root = loader.load();
                     HomePageController pu = loader.getController();
-                    AnchorPane Rev = FXMLLoader.load(getClass().getResource("../Views/ListResto.fxml"));
+                    AnchorPane Rev = FXMLLoader.load(getClass().getResource("../Views/ListCulture.fxml"));
                     pu.setNode(Rev);
                     name.getScene().setRoot(root);
                    
@@ -390,9 +390,6 @@ public class AjoutCultureController implements Initializable {
         }
     }
 
-    @FXML
-    private void home(MouseEvent event) {
-    }
       public void setLatitudeText(String latitude) {
         this.latitude.setText(latitude);
     }
@@ -610,5 +607,6 @@ public class AjoutCultureController implements Initializable {
 
         return true;
     }
+     
     
 }

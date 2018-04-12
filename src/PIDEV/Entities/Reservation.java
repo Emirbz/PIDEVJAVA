@@ -29,8 +29,9 @@ public class Reservation extends RecursiveTreeObject<Reservation> {
     private String description;
     private Timestamp date;
 
-    public Reservation(Etablissement etablissement,String aunomde, int nombre, String description, Timestamp date) {
-       this.etablissement = etablissement;
+    public Reservation(User user,Etablissement etablissement,String aunomde, int nombre, String description, Timestamp date) {
+       this.user=user;
+        this.etablissement = etablissement;
         this.aunomde = aunomde;
         this.nombre = nombre;
         this.description = description;
@@ -96,7 +97,6 @@ public class Reservation extends RecursiveTreeObject<Reservation> {
     public void setDate(Timestamp date) {
         this.date = date;
     }
-    
     
     
 }

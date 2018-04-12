@@ -149,4 +149,51 @@ public class UserService {
             
         }
              return user;}
+  
+    
+    public void editUser(User user) throws SQLException{
+        String req = "UPDATE user SET "
+                  + "username = ?,"
+                    + "username_canonical = ?,"
+                    + "email = ?,"
+                    + "email_canonical= ?,"
+                    + "enabled = ?,"
+                    + "last_login = ?,"
+                    + "role = ? ,"
+                    + "facebook = ?,"
+                    + "address = ?,"
+                    + "devis_name = ?,"
+                    + " date = ?,name=?,surname=?,phone=? where id=?";
+        System.out.println(req);
+        PreparedStatement pre = cn.prepareStatement(req);
+        pre.setString(1, user.getUsername());
+        pre.setString(2, user.getUsername().toLowerCase());
+        pre.setString(3, user.getEmail());
+        pre.setString(4, user.getEmail().toLowerCase());
+        pre.setBoolean(5, user.isEnabled());
+        
+        pre.setDate(6, PIDEV.Views.FirstFrame.user.getLast_login());
+        pre.setString(7, user.getRole());
+        pre.setString(8, user.getFacebook());
+        pre.setString(9, user.getAddress());
+        pre.setString(10, user.getDevis_name());
+        pre.setDate(11, PIDEV.Views.FirstFrame.user.getDate());
+        pre.setString(12, user.getName());
+        pre.setString(13, user.getSurname());
+        pre.setString(14, user.getPhone());
+        pre.setInt(15,PIDEV.Views.FirstFrame.user.getId());
+        pre.executeUpdate();
+        System.out.println("updated");
+        
+    }
+    public void changePassUser(User user,String password) throws SQLException{
+        String pw_hash = BCrypt.hashpw(password, BCrypt.gensalt());
+        String req = "UPDATE user SET "
+                    
+                    + " password = ? where id=?";
+        PreparedStatement pre = cn.prepareStatement(req);
+        pre.setString(1, pw_hash);
+        pre.setInt(2, user.getId());
+        pre.executeUpdate();
+    }
 }

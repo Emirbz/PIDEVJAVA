@@ -14,7 +14,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import PIDEV.Entities.Etablissement;
+import PIDEV.Entities.Favoris;
 import PIDEV.Services.EditEtablissement;
+import PIDEV.Services.FavorisService;
 import PIDEV.Services.GestionReviews;
 import PIDEV.Services.ListEtablissement;
 import PIDEV.Utils.MyConnexion;
@@ -32,19 +34,17 @@ import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
 import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
-import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -59,7 +59,6 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import javax.management.Notification;
 import org.controlsfx.control.Notifications;
 
 import org.controlsfx.control.Rating;
@@ -182,6 +181,10 @@ public class ProfilrestoController implements Initializable {
     private StackPane stackpane1;
     @FXML
     private StackPane stackpane2;
+    @FXML
+    private FontAwesomeIconView dejafavoris;
+    @FXML
+    private FontAwesomeIconView favoris;
 
     /**
      * Initializes the controller class.
@@ -193,13 +196,17 @@ public class ProfilrestoController implements Initializable {
     }
 
     public void RestoProfil(int id) throws SQLException {
-
+        
+FavorisService fs = new FavorisService();
         User user = PIDEV.Views.FirstFrame.user;
         if (user == null) {
+            favoris.setVisible(false);
+            dejafavoris.setVisible(false);
             panecom.setVisible(false);
             dejanote.setText("Connectez-Vous pour noter cet Etablissement");
             dejanote.setVisible(true);
         }
+        
 
         GestionReviews gr = new GestionReviews();
 
@@ -214,7 +221,37 @@ public class ProfilrestoController implements Initializable {
                 dejanote.setVisible(true);
                 panecom.setVisible(false);
             }
+            if (fs.DejaFavoris(user, etab)>0)
+            {
+                dejafavoris.setVisible(true);
+                favoris.setVisible(false);
+            }
         }
+        favoris.setOnMouseClicked((event) -> {
+        Favoris fav= new Favoris();
+        fav.setIdEtablissement(etab);
+        fav.setIdUser(user);
+    try {
+        fs.AddFavoris(fav);
+        dejafavoris.setVisible(true);
+        favoris.setVisible(false);
+    } catch (SQLException ex) {
+        Logger.getLogger(ProfilrestoController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+        });
+         dejafavoris.setOnMouseClicked((event) -> {
+        Favoris fav= new Favoris();
+        
+    try {
+        fs.DeleteFavoris(etab.getId());
+        dejafavoris.setVisible(false);
+        favoris.setVisible(true);
+    } catch (SQLException ex) {
+        Logger.getLogger(ProfilrestoController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+        });
 
         idEtab.setText(String.valueOf(etab.getId()));
         description.setText(etab.getDescription());
@@ -401,12 +438,17 @@ public class ProfilrestoController implements Initializable {
 //                ProfilrestoController PR = loader.getController();
                 Reviewslist(etab);
                 RestoProfil(etab.getId());
+                 final String imageURINOTIF = new File("C://wamp64/www/PIDEV/web/devis/" + etab.getDevis_name()).toURI().toString();
+                 ImageView Notif = new ImageView();
+                 Notif.setFitHeight(80);
+                 Notif.setFitWidth(80);
+        Notif.setImage(new Image(imageURI4));
                
                 Notifications.create()
                         .title(null)
                         .text("Merci de noter "+etab.getName())
                         .graphic(new ImageView(new Image(imageURI4)))
-                        .graphic(image1)
+                        .graphic(Notif)
                         .hideAfter(Duration.seconds(5))
                          .position(Pos.BOTTOM_RIGHT)
                         

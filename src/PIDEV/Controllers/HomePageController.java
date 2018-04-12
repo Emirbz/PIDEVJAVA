@@ -25,7 +25,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
-import javafx.collections.ObservableArray;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 
@@ -33,13 +32,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -49,11 +47,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import javax.imageio.ImageIO;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -86,8 +84,6 @@ public class HomePageController implements Initializable {
     private VBox profileVB;
     @FXML
     private JFXButton profilMenu;
-    @FXML
-    private JFXButton editMenu;
     @FXML
     private Label nameUserMenu;
     @FXML
@@ -171,173 +167,184 @@ public class HomePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        scrollHomePage.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollHomePage.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+       
 
-        //homepage Hamburger setting 
+            scrollHomePage.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+            scrollHomePage.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+
+            //homepage Hamburger setting
 //            AnchorPane mb = FXMLLoader.load(getClass().getResource("../Views/MenuBar.fxml"));
-        menu.setSidePane(menuBar);
+            menu.setSidePane(menuBar);
 //            for(Node node : mb.getChildren()){
 //                    if (node.getTypeSelector()=="JFXButton"){
 //                         if(node.getAccessibleText()=="Profile"){
-//                            
+//
 //                            
 //                    }
-//                       
+//
 //                
 //            }
 //          }
-        HamburgerBackArrowBasicTransition burger = new HamburgerBackArrowBasicTransition(hamburger);
-        burger.setRate(-1);
-        hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
-            burger.setRate(burger.getRate() * -1);
-            burger.play();
+            HamburgerBackArrowBasicTransition burger = new HamburgerBackArrowBasicTransition(hamburger);
+            burger.setRate(-1);
+            hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+                burger.setRate(burger.getRate() * -1);
+                burger.play();
 
-            if (menu.isShown()) {
-                //   menuBar.setVisible(false);
-                menu.close();
-                menu.toBack();
-                hamburger.setLayoutX(20);
-            } else {
-                menu.open();
-                menu.toFront();
-                hamburger.setLayoutX(320);
-                // menuBar.setVisible(true);
+                if (menu.isShown()) {
+                    //   menuBar.setVisible(false);
+                    menu.close();
+                    menu.toBack();
+                    hamburger.setLayoutX(20);
+                } else {
+                    menu.open();
+                    menu.toFront();
+                    hamburger.setLayoutX(320);
+                    // menuBar.setVisible(true);
+                }
             }
-        }
-        );
+            );
 
-        //end hamburger
-        try {
-            accueil = FXMLLoader.load(getClass().getResource("../Views/Accueil.fxml"));
-
-            setNode(accueil);
-
-        } catch (IOException ex) {
-            Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        if (FirstFrame.user == null) {
-            FontAwesomeIconView iconCon = new FontAwesomeIconView(FontAwesomeIcon.SIGN_IN);
-            iconCon.setFill(Color.web("#c9c9c9"));
-            iconCon.setSize(String.valueOf(14));
-
-            JFXButton inscriButton = new JFXButton("Inscription|Connexion");
-            inscriButton.setGraphic(iconCon);
-            inscriButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    //       System.out.println("lol");
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Login.fxml"));
-                        Parent root = loader.load();
-                        LoginController lc = loader.getController();
-                        Stage stage = new Stage(StageStyle.UNDECORATED);
-                        stage.setWidth(700);
-                        stage.setHeight(400);
-
-                        stage.setScene(new Scene(root));
-//                            iconCon.getScene().setRoot(root);
-                        stage.show();
-                        Stage pr = (Stage) searchButton.getScene().getWindow();
-                        pr.close();
-                    } catch (IOException ex) {
-                        Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            });
-            inscriButton.setTextFill(Color.web("#c9c9c9"));
-            inscriButton.setLayoutX(70);
-            inscriButton.setLayoutY(30);
-
-            loginRegisterProfie.getChildren().add(inscriButton);
-        } else {
-            File file = new File("C:/wamp64/www/PIDEV/web/devis/" + FirstFrame.user.getDevis_name());
-            BufferedImage bufferedImage;
+//end hamburger
             try {
-                bufferedImage = ImageIO.read(file);
-                Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-                photoProfilMenu.setFill(new ImagePattern(image));
-                String[] userName = FirstFrame.user.getName().split(" ", 0);
-                String userNom = "";
-                for (int i = 0; i < userName.length; i++) {
-                    String s = userName[i].toUpperCase().substring(0, 1) + "" + userName[i].substring(1, userName[i].length());
-                    userNom = userNom + s;
-                    if (i != userName.length) {
-                        userNom = userNom;
-                    }
-                }
-                String[] userSurname = FirstFrame.user.getSurname().split(" ", 0);
-                String userPrenom = "";
-                for (int i = 0; i < userSurname.length; i++) {
-                    String s = userSurname[i].toUpperCase().substring(0, 1) + "" + userSurname[i].substring(1, userSurname[i].length());
-                    userPrenom = userPrenom + s;
-                    if (i != userSurname.length) {
-                        userPrenom = userPrenom + " ";
-                    }
-                }
-                nameUserMenu.setText(userNom + " " + userPrenom);
-                LastLoginMenu.setText(FirstFrame.user.getLast_login().toLocalDate().getDayOfMonth() + " " + FirstFrame.user.getLast_login().toLocalDate().getMonth() + " " + FirstFrame.user.getLast_login().toLocalDate().getYear());
+                accueil = FXMLLoader.load(getClass().getResource("../Views/Accueil.fxml"));
+
+                setNode(accueil);
 
             } catch (IOException ex) {
                 Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            profileHB.setVisible(true);
-            photoProfilMenu.setVisible(true);
-            nameUserMenu.setVisible(true);
-            labelLastLoginMenu.setVisible(true);
-            LastLoginMenu.setVisible(true);
-            logoutMenu.setVisible(true);
-            menuHB.setVisible(true);
-            addMenusToMapProfile();
-            photoProfilMenu.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            if (FirstFrame.user == null) {
+                FontAwesomeIconView iconCon = new FontAwesomeIconView(FontAwesomeIcon.SIGN_IN);
+                iconCon.setFill(Color.web("#c9c9c9"));
+                iconCon.setSize(String.valueOf(14));
 
-                public void handle(MouseEvent event) {
-                    toolsSliderProfile(profileHB, menuHB);
-                    // removeOtherMenusProfile(menuHB);
+                JFXButton inscriButton = new JFXButton("Inscription|Connexion");
+                inscriButton.setGraphic(iconCon);
+                inscriButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        //       System.out.println("lol");
+                        try {
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Login.fxml"));
+                            Parent root = loader.load();
+                            LoginController lc = loader.getController();
+                            Stage stage = new Stage(StageStyle.UNDECORATED);
+                            stage.setWidth(700);
+                            stage.setHeight(400);
+
+                            stage.setScene(new Scene(root));
+//                            iconCon.getScene().setRoot(root);
+                            stage.show();
+                            Stage pr = (Stage) searchButton.getScene().getWindow();
+                            pr.close();
+                        } catch (IOException ex) {
+                            Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+                inscriButton.setTextFill(Color.web("#c9c9c9"));
+                inscriButton.setLayoutX(70);
+                inscriButton.setLayoutY(30);
+
+                loginRegisterProfie.getChildren().add(inscriButton);
+            } else {
+                File file = new File("C:/wamp64/www/PIDEV/web/devis/" + FirstFrame.user.getDevis_name());
+                BufferedImage bufferedImage;
+                try {
+                    bufferedImage = ImageIO.read(file);
+                    Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    photoProfilMenu.setFill(new ImagePattern(image));
+                    String[] userName = FirstFrame.user.getName().split(" ", 0);
+                    String userNom = "";
+                    for (int i = 0; i < userName.length; i++) {
+                        String s = userName[i].toUpperCase().substring(0, 1) + "" + userName[i].substring(1, userName[i].length());
+                        userNom = userNom + s;
+                        if (i != userName.length) {
+                            userNom = userNom;
+                        }
+                    }
+                    String[] userSurname = FirstFrame.user.getSurname().split(" ", 0);
+                    String userPrenom = "";
+                    for (int i = 0; i < userSurname.length; i++) {
+                        String s = userSurname[i].toUpperCase().substring(0, 1) + "" + userSurname[i].substring(1, userSurname[i].length());
+                        userPrenom = userPrenom + s;
+                        if (i != userSurname.length) {
+                            userPrenom = userPrenom + " ";
+                        }
+                    }
+                    nameUserMenu.setText(userNom);
+                    LastLoginMenu.setText(FirstFrame.user.getLast_login().toLocalDate().getDayOfMonth() + " " + FirstFrame.user.getLast_login().toLocalDate().getMonth() + " " + FirstFrame.user.getLast_login().toLocalDate().getYear());
+
+                } catch (IOException ex) {
+                    Logger.getLogger(HomePageController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
+                profileHB.setVisible(true);
+                photoProfilMenu.setVisible(true);
+                nameUserMenu.setVisible(true);
+                labelLastLoginMenu.setVisible(true);
+                LastLoginMenu.setVisible(true);
+                logoutMenu.setVisible(true);
+                menuHB.setVisible(true);
+                addMenusToMapProfile();
+                photoProfilMenu.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                    public void handle(MouseEvent event) {
+                        toolsSliderProfile(profileHB, menuHB);
+                        // removeOtherMenusProfile(menuHB);
+                    }
+
+                });
+
+            }
+
+            setComponentsSize();
+            addMenusToMap();
+
+            catButton.setOnAction(new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent event) {
+                    toolsSlider(catVB, sousMenuCat);
+                    removeOtherMenus(catVB);
+                }
             });
 
-        }
+            eventButton.setOnAction(new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent event) {
+                    toolsSlider(eventVB, sousMenuEvent);
+                    removeOtherMenus(eventVB);
+                }
+            });
 
-        setComponentsSize();
-        addMenusToMap();
+            blogButton.setOnAction(new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent event) {
+                    toolsSlider(blogVB, sousMenuBlog);
+                    removeOtherMenus(blogVB);
+                }
+            });
 
-        catButton.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                toolsSlider(catVB, sousMenuCat);
-                removeOtherMenus(catVB);
-            }
-        });
+            dealButton.setOnAction(new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent event) {
+                    toolsSlider(dealVB, sousMenuDeal);
+                    removeOtherMenus(dealVB);
+                }
+            });
 
-        eventButton.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                toolsSlider(eventVB, sousMenuEvent);
-                removeOtherMenus(eventVB);
-            }
-        });
+            
 
-        blogButton.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                toolsSlider(blogVB, sousMenuBlog);
-                removeOtherMenus(blogVB);
-            }
-        });
-
-        dealButton.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                toolsSlider(dealVB, sousMenuDeal);
-                removeOtherMenus(dealVB);
-            }
-        });
+  
 
     }
 
     public void setNode(Node node) {
         mainAP.getChildren().clear();
         mainAP.getChildren().add((Node) node);
+        node.toFront();
+        menu.toBack();
+        menu.close();
+        hamburger.setLayoutX(20);
+
         FadeTransition ft = new FadeTransition(Duration.millis(1500));
         ft.setNode(node);
         ft.setFromValue(0.1);
@@ -518,9 +525,33 @@ public class HomePageController implements Initializable {
 
     @FXML
     private void AjoutRestaurant(MouseEvent event) throws IOException {
-        AnchorPane addRestaurant = FXMLLoader.load(getClass().getResource("../Views/AjoutCulture.fxml"));
-        setNode(addRestaurant);
-    }
+        if (PIDEV.Views.FirstFrame.user==null)
+        {  Notifications.create()
+                        .title(null)
+                        .text("Connecter Vous Pour Pouvoir Ajouter des Etablissement")
+                       
+                        
+                        .hideAfter(Duration.seconds(8))
+                         .position(Pos.BOTTOM_RIGHT)
+                        
+                        .show();
+        }
+        else   if (!("Pro".equals(PIDEV.Views.FirstFrame.user.getRole())))
+        {
+            AnchorPane addRestaurant = FXMLLoader.load(getClass().getResource("../Views/AddEtablissement.fxml"));
+            setNode(addRestaurant);
+        }
+        else
+        {  Notifications.create()
+                .title(null)
+                .text("Devenir Un utilisateur Professionel Pouvoir Ajouter des Etablissement")
+                
+                
+                .hideAfter(Duration.seconds(8))
+                .position(Pos.BOTTOM_RIGHT)
+                
+                .show();
+        }}
 
     @FXML
     private void ListRestaurant(MouseEvent event) throws IOException {
@@ -530,9 +561,44 @@ public class HomePageController implements Initializable {
 
     @FXML
     private void listHotels(ActionEvent event) throws IOException {
-          AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/ListHotel.fxml"));
+        AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/ListHotel.fxml"));
         setNode(listRestaurant);
     }
 
-  
+    @FXML
+    private void Culture(ActionEvent event) throws IOException {
+        AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/ListCulture.fxml"));
+        setNode(listRestaurant);
+    }
+
+    @FXML
+    private void Beaute(ActionEvent event) throws IOException {
+        AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/ListBeaute.fxml"));
+        setNode(listRestaurant);
+    }
+
+    @FXML
+    private void AjouterEvent(ActionEvent event) throws IOException {
+        AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/event.fxml"));
+        setNode(listRestaurant);
+    }
+
+    @FXML
+    private void ListEvent(ActionEvent event) throws IOException {
+        AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/afficheevent.fxml"));
+        setNode(listRestaurant);
+    }
+
+    @FXML
+    private void Home(ActionEvent event) throws IOException {
+        AnchorPane listRestaurant = FXMLLoader.load(getClass().getResource("../Views/Accueil.fxml"));
+        setNode(listRestaurant);
+    }
+
+    @FXML
+    private void settingPage(ActionEvent event) throws IOException {
+        AnchorPane settingPage = FXMLLoader.load(getClass().getResource("../Views/SettingProfileUser.fxml"));
+        setNode(settingPage);
+    }
+
 }

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="666.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.EventController">
+   <children>
+      <Label layoutX="445.0" layoutY="29.0" text="Ajout evenement">
+         <font>
+            <Font name="Bodoni MT Condensed" size="87.0" />
+         </font>
+      </Label>
+      <JFXTextField id="nom" fx:id="nom" focusColor="#7682a4" layoutX="201.0" layoutY="153.0" promptText="Libelle" styleClass="combo-box" stylesheets="@../Style/style.css" />
+      <JFXTextField id="description" fx:id="description" focusColor="#7682a4" layoutX="201.0" layoutY="252.0" promptText="Description" styleClass="combo-box" stylesheets="@../Style/style.css" />
+      <JFXTextField id="phone" fx:id="phone" focusColor="#7682a4" layoutX="199.0" layoutY="345.0" promptText="Telephone" styleClass="combo-box" stylesheets="@../Style/style.css" />
+      <JFXTextField id="twitter" fx:id="twitter" focusColor="#7682a4" layoutX="192.0" layoutY="436.0" promptText="Twitter" styleClass="combo-box" stylesheets="@../Style/style.css" />
+      <JFXTextField id="facebook" fx:id="facebook" focusColor="#7682a4" layoutX="192.0" layoutY="480.0" promptText="Facebook" styleClass="combo-box" stylesheets="@../Style/style.css" />
+      <Label layoutX="211.0" layoutY="109.0" prefHeight="36.0" prefWidth="297.0" text="Nom &amp; Description">
+         <font>
+            <Font name="Comic Sans MS" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="207.0" layoutY="296.0" prefHeight="32.0" prefWidth="303.0" text="Information de l'etablissement">
+         <font>
+            <Font name="Comic Sans MS" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="208.0" layoutY="629.0" prefHeight="32.0" prefWidth="139.0" text="Date evenement">
+         <font>
+            <Font name="Comic Sans MS" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="199.0" layoutY="726.0" prefHeight="32.0" prefWidth="139.0" text="Equipements">
+         <font>
+            <Font name="Comic Sans MS" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="207.0" layoutY="553.0" prefHeight="32.0" prefWidth="232.0" text="Localisation">
+         <font>
+            <Font name="Comic Sans MS" size="17.0" />
+         </font>
+      </Label>
+      <JFXTextField id="place" fx:id="place" focusColor="#7682a4" layoutX="192.0" layoutY="518.0" promptText="Nombre de places" styleClass="combo-box" stylesheets="@../Style/style.css" />
+      <JFXTextField id="adresse" fx:id="adresse" focusColor="#7682a4" layoutX="198.0" layoutY="593.0" promptText="Adresse" styleClass="combo-box" stylesheets="@../Style/style.css" />
+      <FontAwesomeIconView glyphName="LINK" layoutX="174.0" layoutY="751.0" size="20" />
+      <JFXCheckBox id="parking" fx:id="parking" layoutX="176.0" layoutY="772.0" text="Parking" />
+      <JFXCheckBox id="cartecredit" fx:id="cartecredit" layoutX="288.0" layoutY="773.0" prefHeight="18.0" prefWidth="109.0" text="Carte Credit" />
+      <JFXCheckBox id="fumer" fx:id="fumer" layoutX="568.0" layoutY="773.0" prefHeight="18.0" prefWidth="109.0" text="Fumer" />
+      <JFXCheckBox id="wifi" fx:id="wifi" layoutX="176.0" layoutY="826.0" text="Wifi" />
+      <JFXCheckBox id="enfant" fx:id="enfant" layoutX="288.0" layoutY="826.0" text="Espace enfant" />
+      <JFXCheckBox id="famille" fx:id="famille" layoutX="431.0" layoutY="774.0" text="Espace familal" />
+      <Button id="ajout" fx:id="ajout" layoutX="747.0" layoutY="865.0" mnemonicParsing="false" onAction="#ajoutevent" prefHeight="34.0" prefWidth="116.0" styleClass="dark-blue" stylesheets="@../Style/style.css" text="Ajouter" />
+      <JFXCheckBox id="ascenseur" fx:id="ascenseur" layoutX="429.0" layoutY="828.0" text="Ascenseur" />
+      <JFXDatePicker id="date" fx:id="date" defaultColor="BLACK" layoutX="192.0" layoutY="678.0" />
+      <AnchorPane layoutX="488.0" layoutY="190.0" prefHeight="167.0" prefWidth="171.0" style="-fx-background-color: BDBDBD;">
+         <children>
+            <Label layoutX="14.0" layoutY="167.0" prefHeight="19.0" prefWidth="114.0" text="Photo de profil">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="13.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fx:id="image" glyphName="PLUS" layoutX="98.0" layoutY="92.0" size="30" wrappingWidth="22.85714340209961" />
+            <ImageView fx:id="pic" fitHeight="200.0" fitWidth="222.0" layoutX="-2.0" onMouseClicked="#addImage4" pickOnBounds="true" smooth="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="734.0" layoutY="190.0" prefHeight="167.0" prefWidth="178.0" style="-fx-background-color: BDBDBD;">
+         <children>
+            <Label layoutX="10.0" layoutY="164.0" prefHeight="19.0" prefWidth="132.0" text="Photo de couverture">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="13.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fx:id="image1" glyphName="PLUS" layoutX="99.0" layoutY="92.0" size="30" wrappingWidth="22.85714340209961" />
+            <ImageView fx:id="pic1" fitHeight="200.0" fitWidth="223.0" layoutX="-1.0" layoutY="-1.0" onMouseClicked="#addImage" pickOnBounds="true" smooth="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="487.0" layoutY="405.0" prefHeight="167.0" prefWidth="171.0" style="-fx-background-color: BDBDBD;">
+         <children>
+            <Label layoutX="14.0" layoutY="166.0" prefHeight="19.0" prefWidth="59.0" text="Image 1">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="13.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fx:id="image2" glyphName="PLUS" layoutX="95.0" layoutY="96.0" size="30" wrappingWidth="22.85714340209961" />
+            <ImageView fx:id="pic2" fitHeight="200.0" fitWidth="222.0" layoutX="-2.0" onMouseClicked="#addImage2" pickOnBounds="true" smooth="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="735.0" layoutY="405.0" prefHeight="167.0" prefWidth="171.0" style="-fx-background-color: BDBDBD;">
+         <children>
+            <Label layoutX="14.0" layoutY="166.0" prefHeight="19.0" prefWidth="59.0" text="Image 2">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="13.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fx:id="image21" glyphName="PLUS" layoutX="95.0" layoutY="92.0" size="30" wrappingWidth="22.85714340209961" />
+            <ImageView fx:id="pic3" fitHeight="200.0" fitWidth="222.0" layoutX="-2.0" onMouseClicked="#addImage3" pickOnBounds="true" smooth="false" />
+         </children>
+      </AnchorPane>
+      <JFXComboBox fx:id="type" layoutX="199.0" layoutY="203.0" promptText="Type d'évènement" />
+      <JFXTextField id="twitter" fx:id="adressemail" focusColor="#7682a4" layoutX="198.0" layoutY="399.0" promptText="Mail" styleClass="combo-box" stylesheets="@../Style/style.css" />
+   </children>
+</AnchorPane>

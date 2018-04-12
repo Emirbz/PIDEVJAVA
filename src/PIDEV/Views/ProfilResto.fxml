@@ -348,6 +348,8 @@
                         <StackPane fx:id="stackpane" layoutX="27.0" layoutY="280.0" prefHeight="932.0" prefWidth="1260.0" visible="false" />
                         <StackPane fx:id="stackpane1" layoutX="37.0" layoutY="290.0" prefHeight="932.0" prefWidth="1260.0" visible="false" />
                         <StackPane fx:id="stackpane2" layoutX="37.0" layoutY="290.0" prefHeight="932.0" prefWidth="1260.0" visible="false" />
+                        <FontAwesomeIconView fx:id="dejafavoris" fill="#ddda21" glyphName="STAR" layoutX="447.0" layoutY="225.0" size="50" visible="false" />
+                        <FontAwesomeIconView fx:id="favoris" fill="#ddda21" glyphName="STAR_ALT" layoutX="447.0" layoutY="225.0" size="50" />
                      </children>
                   </AnchorPane>
                </content>

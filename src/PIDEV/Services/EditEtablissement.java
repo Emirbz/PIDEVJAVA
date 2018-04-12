@@ -91,6 +91,88 @@ public class EditEtablissement {
         pre.executeUpdate();
         
     }
+    public void ModifierHotel(Etablissement etab,int item) throws SQLException {
+        Connection cn = MyConnexion.getInstance().getConnection();
+        String req = "UPDATE etablissement SET "
+                  + "name = ?,"
+                    + "address = ?,"
+                    + "description = ?,"
+                    + "phone = ?,"
+                    + "email = ?,"
+                    + "website = ?,"
+                    + "facebook = ?,"
+                   
+                    + " parking = ?,"
+                    + "cartecredit = ?,"
+                    + "chaiseroulante = ?,"
+                    + "fumer = ?,"
+                    + "terasse = ?,"
+                    + "wifi = ?,"
+                    + "reservations = ?,"
+                    + "place = ?,"
+                    + "livraison = ?,"
+                    + "climatisation = ?,"
+                    + "animaux = ?,"
+                    + "alcool = ? ,"
+                + " souscat = ? ,"
+                + "img1 = ?,"
+                + "img2 = ?,"
+                + "img3 = ? ,"
+                + "devis_name = ?,"
+           
+           
+                
+                + " latitude = ? ,longitude = ?,iduser=?,checkin=?,checkout=?,etoile=?,nbrchambre=?,prixmoy=?,lpd=?,pc=?,dp=?,allinclusive=? where id=?";
+                   
+        PreparedStatement pre = cn.prepareStatement(req);
+        pre.setString(1, etab.getName());
+        pre.setString(2, etab.getAddress());
+        pre.setString(3, etab.getDescription());
+        pre.setString(4, etab.getPhone());
+        pre.setString(5, etab.getEmail());
+        pre.setString(6, etab.getWebsite());
+        pre.setString(7, etab.getFacebook());
+    
+        pre.setBoolean(8, etab.isParking());
+        pre.setBoolean(9, etab.isCartecredit());
+        pre.setBoolean(10, etab.isChaiseroulante());
+        pre.setBoolean(11, etab.isFumer());
+        pre.setBoolean(12, etab.isTerasse());
+        pre.setBoolean(13, etab.isWifi());
+        pre.setBoolean(14, etab.isReservations());
+        pre.setInt(15, etab.getPlace());
+        pre.setBoolean(16, etab.isLivraison());
+        pre.setBoolean(17, etab.isClimatisation());
+        pre.setBoolean(18, etab.isAnimaux());
+        pre.setBoolean(19, etab.isAlcool());
+        pre.setInt(20, etab.getSouscat().getId());
+        pre.setString(21, etab.getImg1());
+        pre.setString(22, etab.getImg2());
+        pre.setString(23, etab.getImg3());
+        pre.setString(24, etab.getDevis_name());
+        pre.setDouble(25, etab.getLatitude());
+        pre.setDouble(26, etab.getLongitude());
+        pre.setInt(27, etab.getIduser().getId());
+        pre.setString(28,etab.getCheckin());
+        pre.setString(29,etab.getCheckout());
+
+         pre.setInt(30,etab.getEtoile());
+        pre.setInt(31,etab.getNbrchambre());
+       
+        pre.setInt(32,etab.getPrixmoy());
+        pre.setBoolean(33,etab.isLpd());
+        pre.setBoolean(34,etab.isPc());
+        pre.setBoolean(35,etab.isDp());
+        pre.setBoolean(36,etab.isAllinclusive());
+
+        
+      
+        pre.setInt(37,item);
+         
+       
+        pre.executeUpdate();
+        
+    }
     
     public void ModifierReview(Etablissement etab,int item) throws SQLException {
         Connection cn = MyConnexion.getInstance().getConnection();

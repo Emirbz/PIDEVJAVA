@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="682.0" prefWidth="1221.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.AfficheEventController">
+   <children>
+      <Label layoutX="228.0" layoutY="25.0" text="Liste des évènements">
+         <font>
+            <Font name="Bodoni MT Condensed" size="69.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="recherchetext" layoutX="248.0" layoutY="117.0" onKeyReleased="#RechercheDynamique" prefHeight="24.0" prefWidth="239.0" promptText="Rechercher votre évènement" />
+      <ScrollPane fx:id="pane" layoutX="166.0" layoutY="168.0" prefHeight="437.0" prefWidth="993.0" />
+      <JFXButton fx:id="edit" buttonType="RAISED" layoutX="67.0" layoutY="629.0" prefHeight="34.0" prefWidth="202.0" style="-fx-background-color: #93E89B;" text="Modifier Restaurant" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="13.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="EDIT" size="16.0" wrappingWidth="21.571428298950195" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="delete" buttonType="RAISED" layoutX="378.0" layoutY="629.0" prefHeight="34.0" prefWidth="202.0" style="-fx-background-color: #F96363;" text="Supprimer Restaurant" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="13.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="TRASH_ALT" size="16.0" wrappingWidth="21.571428298950195" />
+         </graphic>
+      </JFXButton>
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="465.0" layoutY="137.0" size="20" wrappingWidth="24.0" />
+      <MaterialDesignIconView />
+      <MaterialDesignIconView />
+      <MaterialDesignIconView />
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="settings" prefHeight="570.0" prefWidth="1300.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.SettingProfileUserController">
+   <children>
+      <AnchorPane layoutX="176.0" layoutY="40.0" prefHeight="482.0" prefWidth="980.0" style="-fx-border-color: dadada; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: fefefe;">
+         <children>
+            <JFXButton fx:id="deleteAccount" layoutX="128.0" layoutY="108.0" onAction="#deleteUser" style="-fx-background-color: #ff214f;" text="Delete Your Account" textFill="#fefefe">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </JFXButton>
+            <Separator layoutX="365.0" layoutY="71.0" orientation="VERTICAL" prefHeight="382.0" prefWidth="4.0" />
+            <Label layoutX="476.0" layoutY="46.0" text="Change Your Password" textFill="#222222">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#222222" glyphName="KEY" size="20" />
+               </graphic>
+            </Label>
+            <JFXPasswordField fx:id="currentPass" focusColor="#ff214f" layoutX="523.0" layoutY="123.0" prefHeight="25.0" prefWidth="197.0" promptText="Current Password" />
+            <JFXPasswordField fx:id="newPass" focusColor="#ff214f" layoutX="523.0" layoutY="218.0" prefHeight="25.0" prefWidth="195.0" promptText="New Password" />
+            <JFXPasswordField fx:id="confPass" focusColor="#ff214f" layoutX="523.0" layoutY="324.0" prefHeight="25.0" prefWidth="203.0" promptText="Confirm Password" />
+            <JFXButton fx:id="changePass" layoutX="714.0" layoutY="398.0" onAction="#changePassword" style="-fx-background-color: #ff214f;" text="Change Password" textFill="#dadada" />
+            <Label fx:id="errCurrentPass" layoutX="523.0" layoutY="158.0" prefHeight="19.0" prefWidth="210.0" text="Wrong Password" textFill="#8a0404" visible="false" />
+            <Label fx:id="errDiffPass" layoutX="523.0" layoutY="255.0" prefHeight="19.0" prefWidth="210.0" text="Your Passwords aren't the same" textFill="#8a0404" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

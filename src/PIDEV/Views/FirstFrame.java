@@ -23,7 +23,7 @@ public class FirstFrame extends Application {
      public static User user = null;
      @Override
     public void start(Stage primaryStage) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("Map.fxml"));
         Scene scene = new Scene(root);
         primaryStage.initStyle(StageStyle.UNDECORATED);
 //        primaryStage.setWidth(700);

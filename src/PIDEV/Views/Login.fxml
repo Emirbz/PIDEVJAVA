@@ -21,7 +21,7 @@
             <GaussianBlur radius="5.5" />
          </effect>
          <image>
-            <Image url="@../../../../../../../wamp64/www/PIDEV/web/images/bg1.jpg" />
+            <Image url="@bg4.jpg" />
          </image></ImageView>
       <AnchorPane layoutX="376.0" layoutY="24.0" prefHeight="339.0" prefWidth="297.0" style="-fx-background-color: dadada; -fx-opacity: 85%; -fx-background-radius: 50 20;">
          <children>
@@ -38,12 +38,18 @@
             <Label fx:id="error" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="242.0" text="Pseudo/Email ou mot de passe incorrect!" textFill="#ab2828" visible="false" />
          </children>
       </AnchorPane>
-      <JFXButton fx:id="signup" alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" layoutY="259.0" onMouseClicked="#registerPage" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #ff214f;" text="Inscription" textAlignment="CENTER" textFill="WHITE" />
-      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="86.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+      <JFXButton fx:id="signup" alignment="CENTER" contentDisplay="CENTER" layoutX="135.0" layoutY="208.0" onMouseClicked="#registerPage" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #ff214f;" text="Inscription" textAlignment="CENTER" textFill="WHITE" />
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="122.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../wamp64/www/PIDEV/web/images/404-2.png" />
+            <Image url="@../../../../../../../../wamp64/www/PIDEV/web/images/404.png" />
          </image></ImageView>
       <FontAwesomeIconView fx:id="close" fill="#938c8c" glyphName="CLOSE" layoutX="680.0" layoutY="18.0" size="20" style="-fx-opacity: 95%;" text="" />
       <MaterialDesignIconView fx:id="minimize" fill="#938c8c" glyphName="WINDOW_MINIMIZE" layoutX="655.0" layoutY="20.0" size="20" style="-fx-opacity: 95%;" />
+      <Label layoutX="184.0" layoutY="246.0" text="OR" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="fcbSignIn" layoutX="132.0" layoutY="282.0" onAction="#signInFb" style="-fx-background-color: #365899;" text="Sign in with Facebook" textFill="WHITE" />
    </children>
 </AnchorPane>

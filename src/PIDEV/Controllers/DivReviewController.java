@@ -70,6 +70,7 @@ public class DivReviewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        rliekd.setVisible(false);
         // TODO
     }    
     
@@ -131,10 +132,12 @@ public class DivReviewController implements Initializable {
       {
           rjaime.setVisible(false);
       }
+         
       if (PIDEV.Views.FirstFrame.user!=null)
-      
-      {if ((gr.checkreview(PIDEV.Views.FirstFrame.user))!=0)
-      { rjaime.setVisible(false);
+             
+      {if ((gr.checkreview(PIDEV.Views.FirstFrame.user,r))>0)
+      { 
+          rjaime.setVisible(false);
           rliekd.setVisible(true);}}
 
        trash.setOnMouseClicked((MouseEvent event) -> {

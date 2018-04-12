@@ -276,7 +276,7 @@ public class ListHotelController implements Initializable {
 
         Stage stage = new Stage(StageStyle.DECORATED);
 
-        stage.setTitle("Liste des Hotels");
+        stage.setTitle("Liste des Etablissement");
         stage.setScene(new Scene(root));
         stage.show();
     }
@@ -297,7 +297,7 @@ public class ListHotelController implements Initializable {
            
        
         
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/DivList.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/DivListHotel.fxml"));
                 Parent root = (Pane) loader.load();
                 DivListController DHC = loader.getController();
                 
@@ -339,7 +339,7 @@ public class ListHotelController implements Initializable {
            
        
         
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/DivList.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/DivListHotel.fxml"));
                 Parent root = (Pane) loader.load();
                 DivListController DHC = loader.getController();
                 

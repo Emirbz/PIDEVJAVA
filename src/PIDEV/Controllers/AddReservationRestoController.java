@@ -62,8 +62,6 @@ public class AddReservationRestoController implements Initializable {
     @FXML
     private JFXTextField aunomde;
     @FXML
-    private JFXButton book;
-    @FXML
     private Label idEtab;
     @FXML
     private Label addressEtab;
@@ -78,6 +76,8 @@ public class AddReservationRestoController implements Initializable {
     @FXML
     private Label nameEtab;
 Etablissement etab;
+    @FXML
+    private JFXButton book;
         
     /**
      * Initializes the controller class.
@@ -111,6 +111,40 @@ Etablissement etab;
 
     @FXML
     private void reserver(ActionEvent event)throws IOException{
+       
+      
+            LocalDate nDate= date.getValue();
+            LocalTime nTime= heure.getValue();
+            LocalDateTime dateTime = nDate.atTime(nTime);
+           
+            Instant instant = nTime.atDate(LocalDate.of(nDate.getYear(), nDate.getMonth(), nDate.getDayOfMonth())).
+            atZone(ZoneId.systemDefault()).toInstant();
+           
+             java.util.Date date_util =java.util.Date.from(dateTime.atZone(ZoneId.systemDefault())
+      .toInstant());
+             java.sql.Timestamp dateF = new java.sql.Timestamp(date_util.getTime());
+             System.out.println(date_util);
+           // Date dateF =Date.from(nDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+           
+           ListEtablissement lr =new ListEtablissement();
+           etab = lr.searchRestaurant(Integer.parseInt(idEtab.getText()));
+            Reservation reservation=new Reservation(
+                    FirstFrame.user,
+                    etab,
+                    aunomde.getText(),
+                    Integer.parseInt(nombre.getText()),
+                    description.getValue(),
+                    dateF
+                    
+            );
+            
+            ReservationService reservationService = new ReservationService();
+            reservationService.addReservation(reservation);
+                    
+    }
+
+    private void edit(ActionEvent event) {
+        
         Connection cn = MyConnexion.getInstance().getConnection();
       
             LocalDate nDate= date.getValue();
@@ -129,6 +163,7 @@ Etablissement etab;
            ListEtablissement lr =new ListEtablissement();
            etab = lr.searchRestaurant(Integer.parseInt(idEtab.getText()));
             Reservation reservation=new Reservation(
+                    FirstFrame.user,
                     etab,
                     aunomde.getText(),
                     Integer.parseInt(nombre.getText()),
@@ -138,9 +173,9 @@ Etablissement etab;
             );
             
             ReservationService reservationService = new ReservationService();
-            reservationService.addReservation(reservation);
-                    
+            
     }
+
 
    
     

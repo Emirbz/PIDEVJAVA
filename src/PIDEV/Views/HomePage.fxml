@@ -34,7 +34,7 @@
          <children>
             <AnchorPane fx:id="menuBar" focusTraversable="true" maxHeight="655.0" maxWidth="300.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="300.0" style="-fx-background-color: rgba(0,0,0,.9);">
                <children>
-                  <AnchorPane fx:id="loginRegisterProfie" focusTraversable="true" layoutY="18.0" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: rgba(0,0,0,.9);">
+                  <AnchorPane fx:id="loginRegisterProfie" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: rgba(0,0,0,.9);">
                      <children>
                         <HBox fx:id="profileHB" layoutX="6.0" layoutY="13.0" prefHeight="75.0" prefWidth="134.0" visible="false">
                            <children>
@@ -44,8 +44,7 @@
                                     <VBox fx:id="profileVB" prefHeight="39.0" prefWidth="62.0" style="-fx-background-color: transparent; -fx-padding: 29 0 0 0;">
                                        <children>
                                           <JFXButton fx:id="profilMenu" onAction="#profilePage" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: rgba(0,0,0,.9);" text="Profile" textFill="#707070" />
-                                          <JFXButton fx:id="editMenu" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: rgba(0,0,0,.9);" text="Edit" textFill="#707070" />
-                                          <JFXButton fx:id="settingsProfile" style="-fx-background-color: rgba(0,0,0,.9);" text="Settings" textFill="WHITE" />
+                                          <JFXButton fx:id="settingsProfile" onAction="#settingPage" style="-fx-background-color: rgba(0,0,0,.9);" text="Settings" textFill="#707070" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -75,7 +74,7 @@
                      <children>
                         <VBox fx:id="accueilVB" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: rgba(0,0,0,.9);">
                            <children>
-                              <JFXButton fx:id="accueilButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" lineSpacing="16.0" prefHeight="25.0" prefWidth="303.0" style="-fx-padding: 9 9 9 17;" text="Accueil" textFill="#dadada">
+                              <JFXButton fx:id="accueilButton" alignment="BASELINE_LEFT" graphicTextGap="10.0" lineSpacing="16.0" onAction="#Home" prefHeight="25.0" prefWidth="303.0" style="-fx-padding: 9 9 9 17;" text="Accueil" textFill="#dadada">
                                  <graphic>
                                     <FontAwesomeIconView fill="#fefefe" glyphName="HOME" size="15" />
                                  </graphic>
@@ -106,12 +105,12 @@
                                           <FontAwesomeIconView fill="#fefefe" glyphName="HOTEL" size="15" />
                                        </graphic>
                                     </JFXButton>
-                                    <JFXButton fx:id="centreBeauteB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="309.0" style="-fx-padding: 7 7 7 50;" text="Centres de beauté et bien être" textFill="#dadada">
+                                    <JFXButton fx:id="centreBeauteB" alignment="BASELINE_LEFT" graphicTextGap="8.0" onAction="#Beaute" prefHeight="25.0" prefWidth="309.0" style="-fx-padding: 7 7 7 50;" text="Centres de beauté et bien être" textFill="#dadada">
                                        <graphic>
                                           <FontAwesomeIconView fill="#fefefe" glyphName="FEMALE" size="15" />
                                        </graphic>
                                     </JFXButton>
-                                    <JFXButton fx:id="culturelB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="315.0" style="-fx-padding: 7 7 7 50;" text="Centres culturels" textFill="#dadada">
+                                    <JFXButton fx:id="culturelB" alignment="BASELINE_LEFT" graphicTextGap="8.0" onAction="#Culture" prefHeight="25.0" prefWidth="315.0" style="-fx-padding: 7 7 7 50;" text="Centres culturels" textFill="#dadada">
                                        <graphic>
                                           <FontAwesomeIconView fill="#fefefe" glyphName="INSTITUTION" size="15" />
                                        </graphic>
@@ -129,12 +128,12 @@
                               </JFXButton>
                               <VBox fx:id="sousMenuEvent" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: rgba(0,0,0,.7);">
                                  <children>
-                                    <JFXButton fx:id="ajoutEventB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="301.0" style="-fx-padding: 7 7 7 50;" text="Ajouter évènement" textFill="#dadada">
+                                    <JFXButton fx:id="ajoutEventB" alignment="BASELINE_LEFT" graphicTextGap="8.0" onAction="#AjouterEvent" prefHeight="25.0" prefWidth="301.0" style="-fx-padding: 7 7 7 50;" text="Ajouter évènement" textFill="#dadada">
                                        <graphic>
                                           <FontAwesomeIconView fill="#fefefe" glyphName="PLUS" size="15" />
                                        </graphic>
                                     </JFXButton>
-                                    <JFXButton fx:id="listeEventB" alignment="BASELINE_LEFT" graphicTextGap="8.0" prefHeight="25.0" prefWidth="300.0" style="-fx-padding: 7 7 7 50;" text="Les évènements" textFill="#dadada">
+                                    <JFXButton fx:id="listeEventB" alignment="BASELINE_LEFT" graphicTextGap="8.0" onAction="#ListEvent" prefHeight="25.0" prefWidth="300.0" style="-fx-padding: 7 7 7 50;" text="Les évènements" textFill="#dadada">
                                        <graphic>
                                           <FontAwesomeIconView fill="#fefefe" glyphName="HOURGLASS_START" size="15" />
                                        </graphic>

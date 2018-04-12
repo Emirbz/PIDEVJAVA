@@ -32,6 +32,7 @@ import PIDEV.Entities.Etablissement;
 import PIDEV.Services.EditEtablissement;
 import PIDEV.Utils.MyConnexion;
 import PIDEV.Views.MapController;
+import com.jfoenix.controls.JFXTextArea;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -42,11 +43,13 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javax.imageio.ImageIO;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.controlsfx.control.PopOver;
 
 /**
  * FXML Controller class
@@ -61,7 +64,7 @@ public class EditrestoController implements Initializable {
     @FXML
     private JFXTextField name;
     @FXML
-    private JFXTextField description;
+    private JFXTextArea description;
     @FXML
     private JFXTextField email;
     @FXML
@@ -107,6 +110,28 @@ public class EditrestoController implements Initializable {
     @FXML
     private Button edit;
     public Optional<ButtonType> action;
+    @FXML
+    private FontAwesomeIconView souscatw;
+    @FXML
+    private FontAwesomeIconView emailw;
+    @FXML
+    private FontAwesomeIconView libellew;
+    @FXML
+    private FontAwesomeIconView descriptionw;
+    @FXML
+    private FontAwesomeIconView telephonew;
+    @FXML
+    private FontAwesomeIconView placew;
+    @FXML
+    private AnchorPane an1;
+    @FXML
+    private FontAwesomeIconView image1w;
+    @FXML
+    private FontAwesomeIconView image2w;
+    @FXML
+    private FontAwesomeIconView image3w;
+    @FXML
+    private FontAwesomeIconView image4w;
 
     public Button getEdit() {
         return edit;
@@ -115,7 +140,6 @@ public class EditrestoController implements Initializable {
     public void setEdit(Button edit) {
         this.edit = edit;
     }
-    @FXML
     private Label id;
     @FXML
     private FontAwesomeIconView image;
@@ -139,8 +163,6 @@ public class EditrestoController implements Initializable {
     private JFXTextField longitude;
 
     
-    @FXML
-    private ImageView openmap;
 
     /**
      * Initializes the controller class.
@@ -170,12 +192,11 @@ public class EditrestoController implements Initializable {
     }
 
 
-    @FXML
     public void EditRestaurant(ActionEvent event) throws IOException, SQLException {
         Connection cn = MyConnexion.getInstance().getConnection();
     
        //// definir cat sous cat forgein key
-     
+     if (controleSaisie()) {
             String scvalue = souscat.getValue();
             String requete = "SELECT * from sous__categorie where nom='" + scvalue + "'";
             PreparedStatement st = cn.prepareStatement(requete);
@@ -259,6 +280,7 @@ public class EditrestoController implements Initializable {
 //            name.getScene().setRoot(root);
 
 //        }
+     }
 
     }
 
@@ -351,7 +373,6 @@ public class EditrestoController implements Initializable {
     
    
 
-    @FXML
     private void AddImage4(MouseEvent event) {
          FileChooser fc = new FileChooser();
 
@@ -368,7 +389,6 @@ public class EditrestoController implements Initializable {
         }
     }
 
-    @FXML
     private void AddImage(MouseEvent event) {
          FileChooser fc = new FileChooser();
 
@@ -385,7 +405,6 @@ public class EditrestoController implements Initializable {
         }
     }
 
-    @FXML
     private void AddImage2(MouseEvent event) {
           FileChooser fc = new FileChooser();
 
@@ -402,7 +421,6 @@ public class EditrestoController implements Initializable {
         }
     }
 
-    @FXML
     private void AddImage3(MouseEvent event) {
            FileChooser fc = new FileChooser();
 
@@ -453,4 +471,231 @@ public void setLatitudeText(String latitude) {
     public void setaddressText(String address) {
         this.address.setText(address);
     }
+     public boolean controleSaisie() {
+        if (souscat.getValue() == "Sous Categorie") {
+            souscatw.setVisible(true);
+            souscat.setStyle("-jfx-focus-color:red");
+            souscat.requestFocus();
+            PopOver pop = new PopOver();
+            pop.setContentNode(new Label("Veuillez choisir une sous categorie"));
+
+            souscatw.setOnMouseEntered((event) -> {
+                pop.show(souscatw);
+            });
+            souscatw.setOnMouseExited((event) -> {
+                pop.hide();
+            });
+            souscat.setOnKeyTyped((event2) -> {
+                souscatw.setVisible(false);
+                souscat.setStyle("-jfx-focus-color:green");
+            });
+            return false;
+
+        }
+
+        if (name.getText().isEmpty()) {
+            libellew.setVisible(true);
+            name.setStyle("-jfx-focus-color:red");
+            name.requestFocus();
+            PopOver pop = new PopOver();
+            pop.setContentNode(new Label("Veuillez saisir un libelle valide"));
+
+            libellew.setOnMouseEntered((event) -> {
+                pop.show(libellew);
+            });
+            libellew.setOnMouseExited((event) -> {
+                pop.hide();
+            });
+            name.setOnKeyTyped((event2) -> {
+                libellew.setVisible(false);
+                name.setStyle("-jfx-focus-color:green");
+            });
+            return false;
+
+        }
+        if ((email.getText().indexOf("@")==-1|| email.getText().isEmpty())) {
+            emailw.setVisible(true);
+            email.setStyle("-jfx-focus-color:red");
+            email.requestFocus();
+            PopOver pop = new PopOver();
+            pop.setContentNode(new Label("Veuillez saisir un email valide"));
+
+            emailw.setOnMouseEntered((event) -> {
+                pop.show(emailw);
+            });
+            emailw.setOnMouseExited((event) -> {
+                pop.hide();
+            });
+            email.setOnKeyTyped((event2) -> {
+                emailw.setVisible(false);
+                email.setStyle("-jfx-focus-color:green");
+            });
+            return false;
+
+        }
+        if (description.getText().isEmpty()) {
+            descriptionw.setVisible(true);
+            description.setStyle("-jfx-focus-color:red");
+            description.requestFocus();
+            PopOver pop = new PopOver();
+            pop.setContentNode(new Label("Description obligatoire"));
+
+            descriptionw.setOnMouseEntered((event) -> {
+                pop.show(descriptionw);
+            });
+            descriptionw.setOnMouseExited((event) -> {
+                pop.hide();
+            });
+            description.setOnKeyTyped((event2) -> {
+                descriptionw.setVisible(false);
+                description.setStyle("-jfx-focus-color:green");
+            });
+            return false;
+
+        }
+        if ((!(phone.getText().matches("[0-9]+"))) || phone.getText().isEmpty()) {
+            telephonew.setVisible(true);
+            phone.setStyle("-jfx-focus-color:red");
+            phone.requestFocus();
+            PopOver pop = new PopOver();
+            pop.setContentNode(new Label("Veuillez saisir un numero de telephone valide"));
+
+            telephonew.setOnMouseEntered((event) -> {
+                pop.show(telephonew);
+            });
+            telephonew.setOnMouseExited((event) -> {
+                pop.hide();
+            });
+            phone.setOnKeyTyped((event2) -> {
+                telephonew.setVisible(false);
+                phone.setStyle("-jfx-focus-color:green");
+            });
+            return false;
+
+        }
+        if ((!(place.getText().matches("[0-9]+"))) || place.getText().isEmpty()) {
+            placew.setVisible(true);
+            place.setStyle("-jfx-focus-color:red");
+            place.requestFocus();
+            PopOver pop = new PopOver();
+            pop.setContentNode(new Label("Veuillez saisir un nombre de place valide"));
+
+            placew.setOnMouseEntered((event) -> {
+                pop.show(placew);
+            });
+            placew.setOnMouseExited((event) -> {
+                pop.hide();
+            });
+            place.setOnKeyTyped((event2) -> {
+                placew.setVisible(false);
+                place.setStyle("-jfx-focus-color:green");
+            });
+            return false;
+
+        }  if ((pic.getImage()==null)) {
+            image1w.setVisible(true);
+            pic.setStyle("-jfx-focus-color:red");
+            pic.requestFocus();
+            PopOver pop = new PopOver();
+            pop.setContentNode(new Label("Veuillez choisir une photo de profil"));
+
+            image1w.setOnMouseEntered((event) -> {
+                pop.show(image1w);
+            });
+            image1w.setOnMouseExited((event) -> {
+                pop.hide();
+            });
+             pic.setOnMouseClicked((event2) -> {
+                image1w.setVisible(false);
+                 addImage4(event2);
+            });
+           
+            return false;
+
+        }
+        if ((pic1.getImage()==null)) {
+            image2w.setVisible(true);
+            pic1.setStyle("-jfx-focus-color:red");
+            pic1.requestFocus();
+            PopOver pop = new PopOver();
+            pop.setContentNode(new Label("Veuillez choisir une photo de profil"));
+
+            image2w.setOnMouseEntered((event) -> {
+                pop.show(image2w);
+            });
+            image2w.setOnMouseExited((event) -> {
+                pop.hide();
+            });
+            pic1.setOnMouseClicked((event2) -> {
+                image2w.setVisible(false);
+                addImage(event2);
+            });
+            return false;
+
+        }
+        if ((pic2.getImage()==null)) {
+            image3w.setVisible(true);
+            pic2.setStyle("-jfx-focus-color:red");
+            pic2.requestFocus();
+            PopOver pop = new PopOver();
+            pop.setContentNode(new Label("Veuillez choisir une photo de profil"));
+
+            image3w.setOnMouseEntered((event) -> {
+                pop.show(image3w);
+            });
+            image3w.setOnMouseExited((event) -> {
+                pop.hide();
+            });
+            pic2.setOnMouseClicked((event2) -> {
+                image3w.setVisible(false);
+                addImage2(event2);
+            });
+            
+            return false;
+
+        }
+        if ((pic3.getImage()==null)) {
+            image4w.setVisible(true);
+            pic3.setStyle("-jfx-focus-color:red");
+            pic3.requestFocus();
+            PopOver pop = new PopOver();
+            pop.setContentNode(new Label("Veuillez choisir une photo de profil"));
+
+            image4w.setOnMouseEntered((event) -> {
+                pop.show(image4w);
+            });
+            image4w.setOnMouseExited((event) -> {
+                pop.hide();
+            });
+            pic3.setOnMouseClicked((event2) -> {
+                image4w.setVisible(false);
+                addImage3(event2);
+            });
+            return false;
+
+        }
+
+        return true;
+    }
+
+    @FXML
+    private void AjoutRestaurant(ActionEvent event) {
+    }
+
+    @FXML
+    private void addImage4(MouseEvent event) {
+    }
+
+    @FXML
+    private void addImage(MouseEvent event) {
+    }
+
+    @FXML
+    private void addImage2(MouseEvent event) {
+    }
+
+    @FXML
+    private void addImage3(MouseEvent event) {
+    }
+
 }

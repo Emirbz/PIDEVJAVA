@@ -41,7 +41,12 @@ import javafx.util.Duration;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriter;
 import org.apache.commons.lang3.RandomStringUtils;
+import com.restfb.DefaultFacebookClient;
+import com.restfb.FacebookClient;
+import com.restfb.Version;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 /**
  * FXML Controller class
  *
@@ -207,4 +212,5 @@ public class AddUserController implements Initializable {
          pr.close();
         
     }
+
 }

@@ -7,10 +7,13 @@
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+
 
 <AnchorPane id="AnchorPane" prefHeight="372.0" prefWidth="650.0" style="-fx-background-color: TRANSPARENT;" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PIDEV.Controllers.AddReservationRestoController">
    <children>
@@ -41,10 +44,15 @@
                </children>
             </AnchorPane>
             <FontAwesomeIconView fill="#ff214f" glyphName="CUTLERY" layoutX="77.0" layoutY="62.0" size="25" wrappingWidth="24.428579032421112" />
-            <FontAwesomeIconView glyphName="CLOSE" layoutX="426.0" layoutY="17.0" />
+            <FontAwesomeIconView fill="#222222" glyphName="CLOSE" layoutX="426.0" layoutY="17.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="1.0" layoutY="1.0" prefHeight="369.0" prefWidth="200.0" style="-fx-background-color: #242124; -fx-border-color: BLACK;">
+      <ImageView fitHeight="372.0" fitWidth="200.0" pickOnBounds="true">
+         <image>
+            <Image url="@bg1.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="372.0" prefWidth="200.0" style="-fx-background-color: rgb(0,0,0,.8); -fx-border-color: BLACK;">
          <children>
             <AnchorPane layoutX="14.0" layoutY="165.0" prefHeight="190.0" prefWidth="172.0" style="-fx-background-color: transparent;">
                <children>
@@ -66,8 +74,8 @@
                   <Label fx:id="addressEtab" layoutX="61.0" layoutY="35.0" prefHeight="25.0" prefWidth="118.0" text="Adress" textFill="#ff214f" />
                   <Label fx:id="PhoneEtab" layoutX="61.0" layoutY="63.0" prefHeight="17.0" prefWidth="118.0" text="Phone" textFill="#ff214f" />
                   <Label fx:id="emailEtab" layoutX="61.0" layoutY="84.0" prefHeight="25.0" prefWidth="118.0" text="Email" textFill="#ff214f" />
-                  <FontAwesomeIconView fill="WHITE" glyphName="FACEBOOK" layoutX="79.0" layoutY="152.0" size="18" />
-                  <JFXButton fx:id="fcbEtab" ellipsisString="" layoutX="74.0" layoutY="133.0" text=" " />
+                  <JFXButton fx:id="fcbEtab" ellipsisString="" layoutX="74.0" layoutY="133.0" prefHeight="27.0" prefWidth="28.0" style="-fx-background-color: #365899;" text=" " />
+                  <FontAwesomeIconView fill="WHITE" glyphName="FACEBOOK" layoutX="83.0" layoutY="154.0" size="18" />
                </children>
             </AnchorPane>
             <Circle fx:id="photoEtab" fill="WHITE" layoutX="100.0" layoutY="78.0" radius="58.0" stroke="#f7f7f7" strokeLineCap="ROUND" strokeType="OUTSIDE" />
@@ -76,6 +84,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-         </children></AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
